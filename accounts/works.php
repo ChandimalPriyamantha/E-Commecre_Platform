@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="accounts/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="accounts/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" href="accounts/css/style.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Online Clothing Managment System</title>
 </head>
 
@@ -63,7 +63,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="index.php" class="nav-link px-3 active">
+                        <a href="../index.php" class="nav-link px-3 active">
                             <span class="me-2"><i class="bi bi-speedometer2"></i></span>
                             <span>Dashboard</span>
                         </a>
@@ -119,7 +119,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="accounts/accounts.php" class="nav-link px-3">
+                                    <a href="accounts.php" class="nav-link px-3">
                                         <span class="me-2"><i class="bi bi-megaphone"></i></i></span>
                                         <span>Account</span>
                                     </a>
@@ -140,7 +140,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="accounts/works.php" class="nav-link px-3">
+                        <a href="works.php" class="nav-link px-3">
                             <span class="me-2"><i class="bi bi-person-plus"></i></span>
                             <span>Works</span>
                         </a>
@@ -171,64 +171,47 @@
     </div>
     <!-- offcanvas -->
     <main class="mt-5 pt-3">
+
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3">
-
-                    <div class="card border-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body text-primary">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-
+            <h4>Manaing Works</h4>
+            <div class="card ">
+                <div class="card-header bg-success text-white">
+                    Featured
                 </div>
-                <div class="col-sm-3">
+                <div class="card-body bg-light">
+                    <h5 class="card-title">Create account for your students</h5>
+                    <p class="card-text">First of all, you should add the students into your class room. You can clik
+                        add student button to create account for your students.
+                    </p>
 
-                    <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body text-secondary">
-                            <h5 class="card-title">Secondary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
+
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#layout">
+                        <span class="me-2"><i class="bi bi-person-plus me-1"></i></span>
+                        <span>Accounts</span>
+                        <span class="ms-auto">
+                            <span class="right-icon">
+                                <i class="bi bi-chevron-down"></i>
+                            </span>
+                        </span>
+                    </a>
+
+
+                    <div class="collapse" id="layout">
+                        <h1>Hello world</h1>
                     </div>
 
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-sm-3">
 
-                    <div class="card border-success mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body text-success">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-sm-3">
-
-                    <div class="card border-danger mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body text-danger">
-                            <h5 class="card-title">Secondary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
 
                 </div>
             </div>
         </div>
     </main>
-    <script src="accounts/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
-    <script src="accounts/js/jquery-3.5.1.js"></script>
-    <script src="accounts/js/jquery.dataTables.min.js"></script>
-    <script src="accounts/js/dataTables.bootstrap5.min.js"></script>
-    <script src="accounts/js/script.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap5.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
