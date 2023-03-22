@@ -24,7 +24,7 @@
     $newName=$_POST['inputName'];
     $newDescription=$_POST['inputDescription'];
 
-    if($newName==NULL &&$newDescription==NULL){
+    if($newName==NULL && $newDescription==NULL){
         echo '<div class="alert alert-danger" role="alert">
                 Please fill details<br><br>
                 <a href="updatecategory_form.php?updateID='.$updateID.'"><button class="btn btn-primary">Ok</button></a>

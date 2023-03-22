@@ -26,19 +26,34 @@
     $categoryName=$_POST['inputName'];
     $categoryDescription=$_POST['inputDescription'];
 
-    if($categoryID==null && $categoryName==null && $categoryDescription==null){
+    $readQuery=mysqli_query($conn,"select ID,Name from Catogery");
+    while($row=mysqli_fetch_assoc($readQuery)){
+        if(($row['ID']==$categoryID)||($row['Name']==$categoryName)){
+            echo '<div class="alert alert-danger" role="alert">
+                Category ID or Name is existing...<br><br>
+                <a href="add_category_form.php"><button class="btn btn-primary">Ok</button></a>
+                </div>';
+        }
+    }
+
+    if($categoryID && $categoryName && $categoryDescription){
+        $add_category_query=mysqli_query($conn,"insert into catogery values ($categoryID,'$categoryName','$categoryDescription')");
+        if(!$add_category_query){
+            echo '<div class="alert alert-danger" role="alert">
+                Could not add new category...<br><br>
+                <a href="add_category_form.php"><button class="btn btn-primary">Ok</button></a>
+                </div>';
+        }
+    }
+    else if($categoryID==null || $categoryName==null || $categoryDescription==null) {
         echo '<div class="alert alert-danger" role="alert">
-                Please fill details<br><br>
+                Please fill all fields <br><br>
                 <a href="add_category_form.php"><button class="btn btn-primary">Ok</button></a>
                 </div>';
     }
 
-    $readQuery=mysqli_query($conn,"select ID from Catogery");
-    while($row=mysqli_fetch_assoc($readQuery)){
-        if($row['ID']==$categoryID){
-            ----------------------
-        }
-    }
+    
+
 
 
 ?>

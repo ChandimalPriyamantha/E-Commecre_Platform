@@ -15,6 +15,12 @@
         <style>
             a{text-decoration:none;color:black;}
             th,td{padding-bottom:15px;}
+            #categoryID{
+                width:150px;
+                margin-left:15px;
+                height:35px;
+
+            }
 
         </style>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -184,30 +190,49 @@
 
         <div class="card text-center">
             <div class="card-header alert-danger">
-                ADD CATEGORIES
+                ADD SERVICES
             </div>
                 
             <div class="card-body">
-                <form action="add_category.php" method="post">
+                <form action="add_service.php" method="post">
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Category ID :</b> </label>
-                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter category ID (Numbers only)"><br>
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Service ID :</b> </label>
+                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter service ID (Numbers only)"><br>
                     </div><br>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Category Name :</b> </label>
-                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new category name"><br>
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Service Name :</b> </label>
+                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new service name"><br>
                     </div><br>
 
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Category Description :</b> </label>
-                        <textarea class="form-control" name="inputDescription" style="text-align:center;width:220pt;" placeholder="Enter new category description"></textarea><br>
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Service Details :</b> </label>
+                        <textarea class="form-control" name="inputDetails" style="text-align:center;width:220pt;" placeholder="Enter new service details"></textarea><br>
                     </div><br>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Category ID:</b> </label>
+                        <select name="serviceCategoryID" id="categoryID" class="dropright">
+                            <option >Choose</option>
+                            <?php
+                                include "Connection/connection.php";
+                                $dropdown_query=mysqli_query($conn,"select ID,Name from catogery");
+                                while($row=mysqli_fetch_row($dropdown_query)){
+                                    echo "<option value='$row[0]'>$row[1]</option>";
+                                }
+                            ?>
+                        </select>
+                    </div><br>
+
+                    <div class="mb-3"style="text-align:left;width:100%;">
+                        <label class="col-sm-2 col-form-label"style="width:350px;text-align:left;"><b>Select new service image (jpeg & png only):</b> </label>
+                        <input type="file" name="Image" style="width:400px;" accepy="jpeg,png">
+                    </div>
 
                     <div class="form-group row">
                         <div class="col-sm-10">
                         <input type="submit" class=" btn btn-success"style="height:40px;width:100px;">
-                        <a href='category.php'><button type='button' class='btn btn-danger'style="height:40px;width:100px;"><lable>Cancel</lable></button></a>
+                        <a href='service.php'><button type='button' class='btn btn-danger'style="height:40px;width:100px;"><lable>Cancel</lable></button></a>
                         </div>
                     </div>
                 </form>

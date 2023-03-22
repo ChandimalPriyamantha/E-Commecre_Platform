@@ -202,6 +202,7 @@
                 </ul>
             </div>
             <div class="card-body">
+                <a href="add_service_form.php" ><button type='button' class='btn btn-success btn-sm' style="float:right;"><lable style='color:white' >Add service</lable></button></a><br><br>
                 <table id="example" class="table table-striped " style="width:100%">
                     <thead>
                         <tr class="table-primary">

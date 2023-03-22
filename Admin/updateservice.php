@@ -58,6 +58,17 @@
                 </div>';
             }
         }
+
+        if($newCategoryID!=="Choose"){
+            $update_query=mysqli_query($conn,"update service set Catogery_ID='$newCategoryID' where ID='$currentSID'");
+            if(!$update_query){
+                echo '<div class="alert alert-danger" role="alert">
+                Could not update category ID<br><br>
+                <a href="updateservice_form.php?currentSID='.$currentSID.'"><button class="btn btn-primary">Ok</button></a>
+                </div>';
+            }
+        }
+
         if($file_name){
             if($file_type=='image/jpeg'){
                 if($serviceImage!=null){

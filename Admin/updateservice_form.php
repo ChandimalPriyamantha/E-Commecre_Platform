@@ -222,7 +222,7 @@
                         </div><br>
                         
                         <div class="mb-3"style="text-align:left;width:100%;">
-                            <label class="col-sm-2 col-form-label"style="width:350px;text-align:left;">Select new cservice image (jpeg & png only): </label>
+                            <label class="col-sm-2 col-form-label"style="width:350px;text-align:left;">Select new service image (jpeg & png only): </label>
                             <input type="file" name="serviceImage" style="width:400px;" id="fileInput" accept=".jpeg,.png">
                         </div>
                     </div>
