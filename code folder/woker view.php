@@ -21,10 +21,11 @@
     $Dlname="";
     $Demail="";
     $Dmobile="";
-    $Daddress="";
+    $DCity="";
     $Dimage="";
+    $Dcategory="";
 
-   $search= mysqli_query($conn,"SELECT First_Name,Lat_Name,Email,Image_Path,Jobe_Category FROM Worker WHERE ID='696' ");
+   $search= mysqli_query($conn,"SELECT First_Name,Lat_Name,Email,Image_Path,Jobe_Category FROM worker WHERE ID='696' ");
 
 
     while ($row = mysqli_fetch_assoc($search)) 
@@ -120,7 +121,7 @@
                     <img src="<?php echo $Dimage; ?>" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><?php echo $Dfname;   ?></h4>
-                      <p class="text-secondary mb-1"><?php  echo $Dcategory ;  ?></p>
+                      <p class="text-secondary mb-1"><?php  echo $Dcategory;  ?></p>
                       <p class="text-muted font-size-sm"><?php echo $DCity; ?></p>
                       <!-- <button class="btn btn-primary">Follow</button> -->
                       <!-- <button class="btn btn-outline-primary">Message</button> -->
@@ -159,9 +160,10 @@
               </div>
             </div>
             
+            
             <div class="col-md-8" style="margin-top: 50px;">
               <div class="card mb-3">
-                <form>
+                <form >
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
@@ -204,7 +206,7 @@
                       <!-- edit button  -->
 
                       <input type="button" name="Save" value="Save" class="btn btn-info " >
-                      <input type="button" name="Update" value="Edit" class="btn btn-info " >
+                      <input type="button" name="Edit" value="Edit" class="btn btn-info " >
                     </div>
                   </div>
                 </div>
