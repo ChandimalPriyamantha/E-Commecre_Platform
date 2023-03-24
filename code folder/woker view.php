@@ -61,47 +61,17 @@
 
     if(isset($_POST['Save']))
     {
-      $UPname=$_POST['fullname'];
-      $UPemail=$_POST['email'];
-      $UPmobile=$_POST['mobile'];
-      $UPAddress=$_POST['address'];
+      $Dfname=$_POST['fullname'];
+      $Demail=$_POST['email'];
+      $Dmobile=$_POST['mobile'];
+      $DCity=$_POST['address'];
 
-      mysqli_query($conn,"UPDATE worker Set Email=$UPemail where ID=696 ");
-      mysqli_query($conn,"UPDATE Phone_Number_of_worker Set Mobile=$UPmobile where ID=696");
-      mysqli_query($conn,"UPDATE Address_of_worker Set City=$UPAddress where Worker_ID=696");
-
-
-    $search= mysqli_query($conn,"SELECT First_Name,Lat_Name,Email,Image_Path,Jobe_Category FROM worker WHERE ID='696' ");
+      mysqli_query($conn,"UPDATE worker Set First_Name='$Dfname' where ID='696' ");
+      mysqli_query($conn,"UPDATE worker Set Email='$Demail' where ID='696' ");
+      mysqli_query($conn,"UPDATE Phone_Number_of_worker Set Mobile='$Dmobile' where ID='696'");
+      mysqli_query($conn,"UPDATE Address_of_worker Set City='$DCity' where Worker_ID='696'");
 
 
-    while ($row = mysqli_fetch_assoc($search)) 
-    {
-      $Dfname= $row['First_Name'];
-      $Dlname = $row['Lat_Name'];
-      $Demail = $row['Email'];
-      $Dimage= $row['Image_Path'];
-      $Dcategory=$row['Jobe_Category'];
-    }
-
-
-    $searchAddress= mysqli_query($conn,"SELECT Street_address,City,Country FROM Address_of_worker WHERE Worker_ID='696' ");
-
-
-    while ($address = mysqli_fetch_assoc($searchAddress)) 
-    {
-      $DStreet_address= $address['Street_address'];
-      $DCity =$address['City'];
-      $DCountry = $address['Country'];
-     }
-
-
-   $searchMobile=mysqli_query($conn,"SELECT  Mobile_Number FROM Phone_Number_of_worker WHERE Worker_ID='696'");
-
-
-    while ($mobile_no = mysqli_fetch_assoc($searchMobile)) 
-    {
-      $Dmobile= $mobile_no['Mobile_Number'];
-    }
     }
 
 ?>
@@ -202,7 +172,7 @@
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" name="fullname" value="<?php if (isset($_POST['Edit'])) echo " "; else echo ($Dfname == "") ? '' : $Dfname;  ?>">
+                      <input type="text" name="fullname" value="<?php  echo $Dfname ?>">
                     </div>
                   </div>
                   <hr>
@@ -211,7 +181,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <input type="text"  name="email" value="<?php if (isset($_POST['Edit'])) echo ""; else echo ($Demail == "") ? '' : $Demail; ?>">
+                    <input type="text"  name="email" value="<?php  echo $Demail ?>">
                     </div>
                   </div>
                   <hr>
@@ -220,7 +190,7 @@
                       <h6 class="mb-0">Mobile</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <input type="text"  name="mobile" value="<?php if (isset($_POST['Edit'])) echo ""; else echo ($Dmobile== "") ? '' : $Dmobile ;  ?>">
+                    <input type="text"  name="mobile" value="<?php  echo $Dmobile ?>">
                     </div>
                   </div>
                   <hr>
@@ -229,7 +199,7 @@
                       <h6 class="mb-0">Address</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <input type="text"   name="address" value="<?php if(isset($_POST['Edit'])) echo ""; else echo ($DCity == "") ? '' : $DCity ;  ?>">
+                    <input type="text"   name="address" value="<?php  echo $DCity ?>">
                     </div>
                   </div>
                   <hr>
@@ -238,7 +208,7 @@
                       <!-- edit button  -->
 
                       <input type="submit" name="Save" value="Save" class="btn btn-info " >
-                      <input type="button" name="Edit" value="Edit" class="btn btn-info " >
+                     
                     </div>
                   </div>
                 </div>
