@@ -120,7 +120,7 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <!-- Worker image-->
-                    <img src="<?php echo $Dimage; ?>" alt="Admin" class="rounded-circle" width="150">
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><?php echo $Dfname;   ?></h4>
                       <p class="text-secondary mb-1"><?php  echo $Dcategory;  ?></p>
