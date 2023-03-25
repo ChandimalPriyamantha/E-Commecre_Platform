@@ -90,8 +90,21 @@
     if(isset($_POST["addedu"]))
     {
       $edu=$_POST["education"];
+      if($edu!=null){
       mysqli_query($conn,"INSERT INTO education(discription,Worker_ID) VALUES('$edu','696')");
+      header('Location: woker view.php');
+      }
     }
+
+    if(isset($_POST["addexp"]))
+    {
+      $exp=$_POST["experience"];
+      if($exp!=null){
+      mysqli_query($conn,"INSERT INTO experince(Description,Worker_ID) VALUES('$exp','696')");
+      header('Location: woker view.php');
+      
+    }}
+
 
     
     
@@ -172,16 +185,13 @@
                   {
                      while ($edurow= mysqli_fetch_assoc($searchedu)) 
                        { ?>
+
                       <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
                         <h6><?php  echo $edurow['discription'];?></h6>
                       <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a><li>
-                     <?php  } 
+                     <?php } 
                   }?>             
                 
-                  
-                  
-
-                  
                 </ul>
               </div>
 
@@ -195,12 +205,12 @@
                       <input type="submit" name="addexp" value="add">
                     </form>
                   </li>
-                  <?php if($searchedu)
+                  <?php if($searchexp)
                   {
-                     while ($edurow= mysqli_fetch_assoc($searchedu)) 
+                     while ($exprow= mysqli_fetch_assoc($searchexp)) 
                        { ?>
                       <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
-                        <h6><?php  echo $edurow['discription'];?></h6>
+                        <h6><?php  echo $exprow['Description'];?></h6>
                       <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a><li>
                      <?php  } 
                   }?> 
