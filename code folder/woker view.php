@@ -57,6 +57,13 @@
       $Dmobile= $mobile_no['Mobile_Number'];
     } 
 
+
+    $searchedu=mysqli_query($conn,"select description from education where Worker_ID='696'");
+
+    while ($edurow= mysqli_fetch_assoc($searchedu)) 
+    {
+      $edu= $edurow['description'];
+    } 
     
 
     if(isset($_POST['Save']))
@@ -74,6 +81,26 @@
 
     }
 
+
+    if(isset($_POST["edit"]))
+    {
+    $Dimage= $_FILES["file"]["name"];
+    $image_temp=$_FILES["file"]["tmp_name"];
+    move_uploaded_file($image_temp , "worker_images/$Dimage");
+    mysqli_query($conn,"UPDATE worker Set Image_Path='$Dimage' where ID='696' ");
+
+    }
+
+    if(isset($_POST["addedu"]))
+    {
+      $edu=$_POST["education"];
+
+
+      mysqli_query($conn,"INSERT INTO education(description) VALUES('$edu') WHERE Worker_ID='696'");
+    }
+
+    
+    mysqli_query($conn,"select Name,Description from experince where Worker_ID='696'");
 ?>
 
 
@@ -120,7 +147,12 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <!-- Worker image-->
-                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="<?php echo $Dimage; ?> " alt="Admin" class="rounded-circle" width="" height="">
+                    
+                    <form method="POST" enctype="multipart/form-data">
+                    <input type="file" name="file"  accept=".jpg, .jpeg, .png" />
+                    <input type="submit" name="edit" value="Upload">
+                    </form>
                     <div class="mt-3">
                       <h4><?php echo $Dfname;   ?></h4>
                       <p class="text-secondary mb-1"><?php  echo $Dcategory;  ?></p>
@@ -131,17 +163,19 @@
                   </div>
                 </div>
               </div>
+              <form>
               <div class="card mt-3">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h4>Educations</h4>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
-                    <span class="text-secondary">https://bootdey.com</span>
+                    <input type="text" name="education"  >
+                    <input type="submit" name="addedu" value="add">
                     <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h5> <?php echo $edu; ?>  </h5>
                     <a class="custom-btn light-btn" href="#" role="button" style="transform: translate(177px);margin-top: -3px;"><i class="material-icons">delete_forever</i></a>
                   </li>
                   
@@ -154,14 +188,13 @@
                     <h4>Experiences</h4>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
-                    <span class="text-secondary">https://bootdey.com</span>
+                  
                     <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a>
                   </li>
                 </ul>
               </div>
             </div>
-            
+          </form>
             
             <div class="col-md-8" style="margin-top: 50px;">
               <div class="card mb-3">
