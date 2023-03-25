@@ -59,7 +59,7 @@
 
 
     $searchedu=mysqli_query($conn,"select discription from education where Worker_ID='696'");
-    
+    $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID='696'");
     
 
     if(isset($_POST['Save']))
@@ -94,7 +94,7 @@
     }
 
     
-    mysqli_query($conn,"select Name,Description from experince where Worker_ID='696'");
+    
 ?>
 
 
@@ -189,11 +189,21 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h4>Experiences</h4>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <form method=POST>
+                      <input type="text" name="experience"  >
+                      <input type="submit" name="addexp" value="add">
+                    </form>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                  
-                    <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a>
-                  </li>
+                  <?php if($searchedu)
+                  {
+                     while ($edurow= mysqli_fetch_assoc($searchedu)) 
+                       { ?>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
+                        <h6><?php  echo $edurow['discription'];?></h6>
+                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a><li>
+                     <?php  } 
+                  }?> 
                 </ul>
               </div>
             </div>
