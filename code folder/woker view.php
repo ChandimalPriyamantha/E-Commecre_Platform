@@ -58,12 +58,8 @@
     } 
 
 
-    $searchedu=mysqli_query($conn,"select description from education where Worker_ID='696'");
-
-    while ($edurow= mysqli_fetch_assoc($searchedu)) 
-    {
-      $edu= $edurow['description'];
-    } 
+    $searchedu=mysqli_query($conn,"select discription from education where Worker_ID='696'");
+    
     
 
     if(isset($_POST['Save']))
@@ -94,9 +90,7 @@
     if(isset($_POST["addedu"]))
     {
       $edu=$_POST["education"];
-
-
-      mysqli_query($conn,"INSERT INTO education(description) VALUES('$edu') WHERE Worker_ID='696'");
+      mysqli_query($conn,"INSERT INTO education(discription,Worker_ID) VALUES('$edu','696')");
     }
 
     
@@ -148,7 +142,6 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <!-- Worker image-->
                     <img src="<?php echo $Dimage; ?> " alt="Admin" class="rounded-circle" width="" height="">
-                    
                     <form method="POST" enctype="multipart/form-data">
                     <input type="file" name="file"  accept=".jpg, .jpeg, .png" />
                     <input type="submit" name="edit" value="Upload">
@@ -163,21 +156,31 @@
                   </div>
                 </div>
               </div>
-              <form>
+            
               <div class="card mt-3">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h4>Educations</h4>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <input type="text" name="education"  >
-                    <input type="submit" name="addedu" value="add">
-                    <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a>
+                    <form method=POST>
+                      <input type="text" name="education"  >
+                      <input type="submit" name="addedu" value="add">
+                    </form>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                    <h5> <?php echo $edu; ?>  </h5>
-                    <a class="custom-btn light-btn" href="#" role="button" style="transform: translate(177px);margin-top: -3px;"><i class="material-icons">delete_forever</i></a>
-                  </li>
+                  <?php if($searchedu)
+                  {
+                     while ($edurow= mysqli_fetch_assoc($searchedu)) 
+                       { ?>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
+                        <h6><?php  echo $edurow['discription'];?></h6>
+                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a><li>
+                     <?php  } 
+                  }?>             
+                
+                  
+                  
+
                   
                 </ul>
               </div>
@@ -194,7 +197,7 @@
                 </ul>
               </div>
             </div>
-          </form>
+         
             
             <div class="col-md-8" style="margin-top: 50px;">
               <div class="card mb-3">
