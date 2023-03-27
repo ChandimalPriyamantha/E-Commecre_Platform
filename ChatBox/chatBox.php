@@ -72,7 +72,8 @@
 
 
         <form action ="" method="post">
-            <div class="div1"> 
+            
+        <br><br><br><br><br><br>
                 <table >
                     <tr>
                         <td>
@@ -118,7 +119,7 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+          
             
            
         
