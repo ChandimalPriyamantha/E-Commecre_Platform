@@ -32,15 +32,15 @@
             $file_upload_to='ServiceImages/';
 
             $readQuery=mysqli_query($conn,"select ID,Name from Service");
-                while($row=mysqli_fetch_row($readQuery)){
-                    if(($row[0]==$serviceID)||($row[1]==$serviceName)){
-                        die ('<div class="alert alert-danger" role="alert">
-                        Service ID or Name is existing...<br><br>
-                        <a href="add_service_form.php"><button class="btn btn-primary">Ok</button></a>
-                        </div>');
-                    }
-                    
+            while($row=mysqli_fetch_row($readQuery)){
+                if(($row[0]==$serviceID)||($row[1]==$serviceName)){
+                    die ('<div class="alert alert-danger" role="alert">
+                    Service ID or Name is existing...<br><br>
+                    <a href="add_service_form.php"><button class="btn btn-primary">Ok</button></a>
+                    </div>');
                 }
+                
+            }
             
 
             if($serviceID && $serviceName && $serviceDetails && $categoryID!="" && $file_name){

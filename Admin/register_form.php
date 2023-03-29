@@ -15,6 +15,11 @@
         <style>
             a{text-decoration:none;color:black;}
             th,td{padding-bottom:15px;}
+            #gender{
+                width:150px;
+                height:35px;
+
+            }
 
         </style>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -30,12 +35,18 @@
             }
 
             function showPassword() {
-                var x = document.getElementById("password");
-            
-                if (x.type === "password") {
+                var x = document.getElementById("pass1");
+                var y = document.getElementById("pass2");
+                var z = document.getElementById("inputSecretCode");
+                
+                if ((x.type === "password")&&(y.type === "password")) {
                     x.type = "text";
+                    y.type = "text";
+                    z.type = "text";
                 } else {
                     x.type = "password";
+                    y.type = "password";
+                    z.type = "password";
                 }
             }
         </script>
@@ -191,41 +202,100 @@
                     <h2>Karmikaya.lk</h2>
                 </div>
             </div>
-            <form action="login.php" method="POST">
-                <div class="container py-3">
-                    <div class="card text-center" style="border-radius: 1rem;background-color:rgb(20,200,150,0.2);margin-left:10%;margin-right:10%">
-                        <div class="card-body p-lg-5 ">
+            
+            <div class="container py-3">
+                <div class="card text-center" style="border-radius: 1rem;background-color:rgb(150,0,60,0.2);margin-left:10%;margin-right:10%">
+                    <div class="card-body p-lg-5 ">
 
-                            <form action="" method="POST">
-                            <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;"><b>Login in to admin panel</b></h5>
+                        <form action="registerAdmin.php" method="POST" enctype="multipart/form-data" >
+                            <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;"><b>Register as an admin</b></h5>
 
-                            <div class="form-outline mb-4">
-                                <label class="form-label">Email address</label>
-                                <input type="email"class="form-control" name="email" style="width:80%;margin-left:auto;margin-right:auto;border-radius:10px;" >
-                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px">Admin ID :</label>
+                                <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter Admin ID (Numbers only)" required><br>
+                            </div><br>
 
-                            <div class="form-outline mb-2">
-                                <label class="form-label">Password</label>
-                                <input type="password"class="form-control" id="password" name="password" style="width:80%;margin-left:auto;margin-right:auto;border-radius:10px;" >
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> NIC :</label>
+                                <input type="text" class="form-control" name="inputNIC" style="text-align:center;width:220pt;" required ><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> First name :</label>
+                                <input type="text" class="form-control" name="inputFName" style="text-align:center;width:220pt;" required><br>
+                            </div><br>
+                            
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Last name :</label>
+                                <input type="text" class="form-control" name="inputLName" style="text-align:center;width:220pt;" required><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Email :</label>
+                                <input type="email" class="form-control" name="inputEmail" style="text-align:center;width:220pt;"required ><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"><b> Admin secret code (given by the companny) :</b></label>
+                                <input type="password" class="form-control" id="inputSecretCode" name="inputSecretCode" style="text-align:center;width:220pt;"required ><br>
+                            </div><br>
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Password :</label>
+                                <input type="password" class="form-control" id="pass1" name="inputPassword1" style="text-align:center;width:220pt;" required><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px;"> Re enter password :</label>
+                                <input type="password" class="form-control" id="pass2" name="inputPassword2" style="text-align:center;width:220pt;" required><br>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px;margin:auto" > Show password
-                                <input type="checkbox" style="text-align:center;" onclick="showPassword()"> </label>
+                            <label class="col-sm-2 col-form-label" style="width:250px;margin:auto" > Show password
+                            <input type="checkbox" style="text-align:center;" onclick="showPassword()"> </label>
                             </div><br>
 
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px;"> Phone number : </label>
+                                <input type="text" class="form-control" name="inputPhoneNumber" style="text-align:center;width:220pt;" required><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px;"> Address :</label>
+                                <textarea class="form-control" name="inputAddress" style="text-align:left;width:220pt;" required></textarea><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Gender :</label>
+                                <select name="inputGender" id="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> DOB :</label>
+                                <input type="date" class="form-control" name="inputDOB" style="text-align:center;width:220pt;" required><br>
+                            </div><br><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:300px;"> Profile picture (jpg and png only)</label>
+                                <input type="file" name="inputProfilePicture" style="width:400px;" accept=".jpeg,.png" required><br>
+                            </div><br>
+
+
                             <div class="pt-1 mb-4">
-                                <input type="submit" value="Login" class="btn btn-success  btn-block" >&emsp;
+                                <input type="submit" name="submit" value="Register" class="btn btn-success  btn-block" >&emsp;
                                 <input type="reset" name="reset" value="Clear" class="btn btn-danger  btn-block" >
                             </div>
 
-                            <p style="color: #393f81;">Don't have an account? <a href="register_form.php" style="color: #393f81;"><b>Register here</B></a></p>
-                            </form> 
-                    
-                        </div>
+                            <p style="color: #393f81;">Already have an account? <a href="login_form.php" style="color: #393f81;"><b>Login here</b></a></p>
+                        </form> 
+                
                     </div>
                 </div>
-            </form>
+            </div>
         </main>
     </body>
 </html>
