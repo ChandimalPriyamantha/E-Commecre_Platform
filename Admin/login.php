@@ -20,7 +20,8 @@
 
     <body>
         <?php
-            $enteredEmail=$POST['email'];
+            include "Connection/connection.php";
+            $enteredEmail=$_POST['email'];
             $enteredPassword=md5($_POST['password']);
 
 
@@ -35,6 +36,10 @@
                     
                     
                 }
+                die( '<div class="alert alert-danger" role="alert">
+                Email or password is incorrect<br><br>
+                <a href="login_form.php"><button class="btn btn-primary">Ok</button></a>
+                </div>');
         ?>
 
 

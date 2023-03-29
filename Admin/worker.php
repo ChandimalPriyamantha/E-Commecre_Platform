@@ -175,7 +175,12 @@
         <main class="mt-5 pt-3"> <!-- ---------------------------------------------------------Body-->
         <div class="card text-center">
             <div class="card-header" style="background-color:rgb(50,200,50,0.2);">
-                 <h2>Admin Panel</h2>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" style="width:100%;"><label style="float:left;font-size:20px;"><b>Admin Panel - Karmikaya.lk</b></label>
+                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a> </label>
+                </div>
+
             </div>
         </div>
 
@@ -206,6 +211,7 @@
                 </ul>
             </div>
             <div class="card-body">
+                
                 <table id="example" class="table table-striped " style="width:100%">
                     <thead>
                         <tr class="table-primary">

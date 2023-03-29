@@ -188,7 +188,11 @@
         <main class="mt-5 pt-3"> <!-- ---------------------------------------------------------Body-->
             <div class="card text-center">
                 <div class="card-header" style="background-color:rgb(50,200,50,0.2);">
-                    <h2>Karmikaya.lk</h2>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="width:100%;"><label style="float:left;font-size:20px;"><b>Admin Panel - Karmikaya.lk</b></label>
+                    </div>
+
                 </div>
             </div>
             <form action="login.php" method="POST">
@@ -219,7 +223,7 @@
                                 <input type="reset" name="reset" value="Clear" class="btn btn-danger  btn-block" >
                             </div>
 
-                            <p style="color: #393f81;">Don't have an account? <a href="register_form.php" style="color: #393f81;"><b>Register here</B></a></p>
+                            <p style="color: #393f81;">Don't have an account? <a href="register_form.php" style="color: #393f81;"><b>Register here</B></a> (admin only)</p>
                             </form> 
                     
                         </div>
