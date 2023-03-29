@@ -185,7 +185,7 @@
                     <a class="nav-link" href="worker.php">Workers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="consumer.php">Concumers</a>
+                    <a class="nav-link" href="consumer.php">Consumers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="project.php">Projects</a>
@@ -198,6 +198,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="subscription.php">Subscriptions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Chat</a>
                 </li>
                 </ul>
             </div>

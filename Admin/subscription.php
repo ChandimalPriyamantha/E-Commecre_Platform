@@ -176,7 +176,7 @@
                     <a class="nav-link" href="worker.php">Workers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="consumer.php">Concumers</a>
+                    <a class="nav-link" href="consumer.php">Consumers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="project.php">Projects</a>
@@ -190,20 +190,51 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="subscription.php">Subscriptions</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Chat</a>
+                </li>
                 </ul>
             </div>
+
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="add_subscription_form.php" ><button type='button' class='btn btn-success btn-sm' style="float:right;"><lable style='color:white' >Add subscription</lable></button></a><br><br>
+                <table id="example" class="table table-striped " style="width:100%">
+                    <thead>
+                        <tr class="table-primary">
+                            <th>Subscription ID</th>
+                            <th>Subscription Name</th>
+                            <th>Description</th>
+                            <th>Cost</th>
+                            <th></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            include "Connection/connection.php";
+                            $query=mysqli_query($conn,'select * from subscription');
+
+                            while($row=mysqli_fetch_row($query)){
+                                echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td>
+                                <td>
+                                <a href='update_subscription_form.php? SubID=$row[0]'><button type='button' class='btn btn-success btn-sm'><lable style='color:white' >Update</lable></button></a>
+                                <a href='delete_subscription.php?delete=$row[0]'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a>
+                                </td>";
+                                
+                            }
+
+
+                        ?>
+            
+                    </tbody>
+                </table>
+
+
+
+
+
             </div>
         </div>
-
-
-
-
-
-
         </main>
     </body>
 

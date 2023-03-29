@@ -186,7 +186,7 @@
                     <a class="nav-link active" href="worker.php">Workers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="consumer.php">Concumers</a>
+                    <a class="nav-link" href="consumer.php">Consumers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="project.php">Projects</a>
@@ -200,6 +200,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="subscription.php">Subscriptions</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Chat</a>
+                </li>
                 </ul>
             </div>
             <div class="card-body">
@@ -209,7 +212,7 @@
                             <th>Worker ID</th>
                             <th>First Name</th>
                             <th>Email</th>
-                            <th>Job Type</th>
+                            <th>Job Category</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -218,9 +221,9 @@
                             include "Connection/connection.php";
                             $query=mysqli_query($conn,'select * from worker');
 
-                            while($row=mysqli_fetch_row($query)){
-                                echo "<tr><td>$row[0]</td><td>$row[2]</td><td>$row[5]</td><td>$row[9]</td>
-                                <td><a href='deleteworker.php?delete=$row[0]'><button type='button' class='btn btn-danger' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
+                            while($row=mysqli_fetch_assoc($query)){
+                                echo '<tr><td>'.$row["ID"].'</td><td>'.$row["First_Name"].'</td><td>'.$row["Email"].'</td><td>'.$row["Jobe_Category"].'</td>';
+                                echo "<td><a href='deleteworker.php?delete=".$row["ID"]."'><button type='button' class='btn btn-danger' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
                                 
                             }
 

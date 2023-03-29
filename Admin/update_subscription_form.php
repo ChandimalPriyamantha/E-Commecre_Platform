@@ -24,6 +24,10 @@
             $(document).ready(function () {
                 $('#example').DataTable();
             });
+
+            function update(id,name,description){
+                document.getElementById("currentID").innerHTML=id;
+            }
         </script>
     </head>
 
@@ -179,58 +183,37 @@
         </div>
 
         <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a class="nav-link " href="worker.php">Workers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="consumer.php">Consumers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="project.php">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="category.php">Categories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="service.php">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="subscription.php">Subscriptions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Chat</a>
-                </li>
-                </ul>
+            <div class="card-header alert-danger">
+                UPDATE SUBSCRIPTION
             </div>
+
+
             <div class="card-body">
-            <table id="example" class="table table-striped " style="width:100%">
-                    <thead>
-                        <tr class="table-primary">
-                            <th>Consumer ID</th>
-                            <th>First Name</th>
-                            <th>Email</th>
-                            <th></th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            include "Connection/connection.php";
-                            $query=mysqli_query($conn,'select * from consumer');
+                <form action="update_subscription.php" method="post">
 
-                            while($row=mysqli_fetch_row($query)){
-                                echo "<tr><td>$row[0]</td><td>$row[2]</td><td>$row[5]</td>
-                                <td><a href='deleteconsumer.php?delete=$row[0]'><button type='button' class='btn btn-danger' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
-                                
-                            }
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"><b>Subscription ID :</b> </label>
+                        <input type="text" class="form-control" readonly name="inputID" value="<?php echo $_GET['SubID']?>" style="text-align:center;width:220pt;"><br>
+                    </div><br>
 
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" name="inputName" placeholder="Enter new subscription name"><br>
+                        <input type="text" class="form-control" name="inputDescription" placeholder="Enter new description"><br>
+                        <input type="text" class="form-control" name="inputCost" placeholder="Enter new Cost">
+                        </div>
+                    </div><br>
 
-                        ?>
-            
-                    </tbody>
-                </table>
+                    
+
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                        <input type="submit" class=" btn btn-success"style="height:40px;width:100px;">
+                        <a href='subscription.php'><button type='button' class='btn btn-danger'style="height:40px;width:100px;"><lable>Cancel</lable></button></a>
+                        </div>
+                    </div>
+                </form>
+                
             </div>
         </div>
 
@@ -243,4 +226,5 @@
     </body>
 
     </html>
-
+<?php
+?>
