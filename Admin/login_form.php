@@ -181,51 +181,39 @@
                     <h2>Karmikaya.lk</h2>
                 </div>
             </div>
-                        <div class="container py-3">
-                                <div class="card text-center" style="border-radius: 1rem;">
-                                
-                                    
-                                    
-                                    <div class="card-body p-lg-5 ">
+            
+            <div class="container py-3">
+                <div class="card text-center" style="border-radius: 1rem;background-color:rgb(20,200,150,0.2);margin-left:10%;margin-right:10%">
+                    <div class="card-body p-lg-5 ">
 
-                                        <form>
-                                        <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;"><b>Login in to admin panel</b></h5>
+                        <form action="" method="POST">
+                        <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;"><b>Login in to admin panel</b></h5>
 
-                                        <div class="form-outline mb-4">
-                                        <label class="form-label" for="form2Example17">Email address</label>
-                                            <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                        <label class="form-label" for="form2Example27">Password</label>
-                                            <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                                        </div>
-
-                                        <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
-                                        </div>
-
-                                        
-                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                                            style="color: #393f81;">Register here</a></p>
-                                        <a href="#!" class="small text-muted">Terms of use.</a>
-                                        <a href="#!" class="small text-muted">Privacy policy</a>
-                                        </form> 
-                                    
-
-                                    </div>
-                                    
-                                
-                                </div>
-                            
-                            
+                        <div class="form-outline mb-4">
+                            <label class="form-label">Email address</label>
+                            <input type="email"class="form-control" style="width:80%;margin-left:auto;margin-right:auto;border-radius:10px;" >
                         </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label">Password</label>
+                            <input type="password"class="form-control" style="width:80%;margin-left:auto;margin-right:auto;border-radius:10px;" >
+                        </div>
+
+                        <div class="pt-1 mb-4">
+                            <button class="btn btn-dark  btn-block" type="button">Login</button>
+                        </div>
+
+                        <p style="color: #393f81;">Don't have an account? <a href="#!" style="color: #393f81;">Register here</a></p>
+                        </form> 
                     
 
-
-
-
+                    </div>
+                    
                 
+                </div>
+                
+                
+            </div>
         </main>
     </body>
 
