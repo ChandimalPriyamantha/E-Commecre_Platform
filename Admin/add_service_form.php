@@ -190,52 +190,56 @@
 
         <div class="card text-center">
             <div class="card-header alert-danger">
-                UPDATE SERVICES
+                ADD SERVICES
             </div>
-
-
+                
             <div class="card-body">
-                <form action="updateservice.php" method="post" enctype="multipart/form-data">
-
+                <form action="add_service.php" method="post" enctype="multipart/form-data">
+                    
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label"><b>Service ID :</b> </label>
-                        <input type="text" class="form-control" readonly name="currentSID" value="<?php echo $_GET['currentSID']?>" style="text-align:center;width:220pt;"><br>
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Service ID :</b> </label>
+                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter service ID (Numbers only)"><br>
                     </div><br>
 
                     <div class="form-group row">
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" name="inputName" placeholder="Enter new Service name"><br>
-                        <input type="text" class="form-control" name="inputDetails" placeholder="Enter new service details"></br>
-                
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label"style="width:300px;text-align:left;">Select new category : </label>
-                            <select name="newCategoryID" id="categoryID" class="dropright">
-                                <option selected value="">Choose</option>
-                                <?php
-                                    include "Connection/connection.php";
-                                    $dropdown_query=mysqli_query($conn,"select ID,Name from catogery");
-                                    while($row=mysqli_fetch_row($dropdown_query)){
-                                        echo "<option value='$row[0]'>$row[1]</option>";
-                                    }
-                                ?>
-                            </select>
-                        </div><br>
-                        
-                        <div class="mb-3"style="text-align:left;width:100%;">
-                            <label class="col-sm-2 col-form-label"style="width:350px;text-align:left;">Select new service image (jpeg & png only): </label>
-                            <input type="file" name="serviceImage" style="width:400px;" id="fileInput" accept=".jpeg,.png">
-                        </div>
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Service Name :</b> </label>
+                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new service name"><br>
+                    </div><br>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Service Details :</b> </label>
+                        <textarea class="form-control" name="inputDetails" style="text-align:center;width:220pt;" placeholder="Enter new service details"></textarea><br>
+                    </div><br>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label"style="width:300px;text-align:center;"><b>Select new category :</B> </label>
+                        <select name="CategoryID" id="categoryID" >
+                            <option selected value="">Choose</option>
+                            <?php
+                                include "Connection/connection.php";
+                                $dropdown_query=mysqli_query($conn,"select ID,Name from catogery");
+                                while($row=mysqli_fetch_row($dropdown_query)){
+                                    echo "<option value='$row[0]'>$row[1]</option>";
+                                }
+                            ?>
+                        </select>
+                    </div><br>
+
+                    <div class="mb-3"style="text-align:left;width:100%;">
+                        <label class="col-sm-2 col-form-label"style="width:350px;text-align:left;">Select service image (jpeg & png only): </label>
+                        <input type="file" name="serviceImage" style="width:400px;" accept=".jpeg,.png">
                     </div>
 
-                    
                     <div class="form-group row">
                         <div class="col-sm-10">
-                        <br><input type="submit" class=" btn btn-success"style="height:40px;width:100px;">
+                        <input type="submit" class=" btn btn-success"style="height:40px;width:100px;">
                         <a href='service.php'><button type='button' class='btn btn-danger'style="height:40px;width:100px;"><lable>Cancel</lable></button></a>
                         </div>
                     </div>
+
+
+
                 </form>
-                
             </div>
         </div>
 

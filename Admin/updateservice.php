@@ -113,7 +113,7 @@
 
             else{
                 die ('<div class="alert alert-danger" role="alert">
-                    Invaid image type. Please check again!<br><br>
+                    Invaid image type. Please try again!<br><br>
                     <a href="updateservice_form.php?currentSID='.$currentSID.'"><button class="btn btn-primary">Ok</button></a>
                     </div>');
             }

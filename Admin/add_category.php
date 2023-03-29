@@ -44,6 +44,7 @@
                 <a href="add_category_form.php"><button class="btn btn-primary">Ok</button></a>
                 </div>';
         }
+        header("Location: category.php");
     }
     else if($categoryID==null || $categoryName==null || $categoryDescription==null) {
         echo '<div class="alert alert-danger" role="alert">
