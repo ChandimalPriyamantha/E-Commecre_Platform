@@ -25,7 +25,7 @@
             $currentCategoryName=mysqli_fetch_row(mysqli_query($conn,"select Name from catogery where ID=$categoryID"));
             $workerCategoryList=mysqli_query($conn,"select Jobe_Category from worker");
             while ( $workerCategoryName=mysqli_fetch_row($workerCategoryList)){
-                if ($workerCategoryName[0]==$currentCategoryName[0]){
+                if ($workerCategoryName[0]==$currentCategoryName[0]){           //check whether category has workers
                     die ('<div class="alert alert-danger" role="alert">
                         Could not delete this category because there are some workers related to this category...!<br><br>
                         <a href="category.php"><button class="btn btn-primary">Ok</button></a>
@@ -34,18 +34,23 @@
             }
             
             
-        $serviceImage=mysqli_fetch_row(mysqli_query($conn,"select Image from service where Catogery_ID=$categoryID"));
-            if($serviceImage!=null){
-                unlink($serviceImage[0]);
+            $serviceImage_query=mysqli_query($conn,"select Image from service where Catogery_ID=$categoryID");      //delete serice images related to the category
+            while($row=mysqli_fetch_row($serviceImage_query)){
+                if($row[0]!=null){
+                unlink($row[0]);
+                }
             }
 
-            $delete_service_query = mysqli_query($conn,"delete from service where Catogery_ID=$categoryID");
-            $delete_category_query = mysqli_query($conn,"delete from catogery where ID=$categoryID");
+            $delete_service_query = mysqli_query($conn,"delete from service where Catogery_ID=$categoryID");        //delete serices related to the category
+            $delete_category_query = mysqli_query($conn,"delete from catogery where ID=$categoryID");               //delete category
                 if($delete_category_query&&$delete_service_query){
                     header("Location: category.php");
                 }
                 else{
-                    echo"<script>alert('Could not delete complete')</script>";
+                    die ('<div class="alert alert-danger" role="alert">
+                        Could not delete this category...!<br><br>
+                        <a href="category.php"><button class="btn btn-primary">Ok</button></a>
+                        </div>');
                 }
         ?>
     </body>
