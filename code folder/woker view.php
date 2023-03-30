@@ -106,6 +106,12 @@
     }}
 
 
+    if(isset($_POST["deledu"]))
+    {
+      $delq="DELETE FROM education WHERE some_column = some_value";
+    }
+
+
     
     
 ?>
@@ -186,9 +192,9 @@
                      while ($edurow= mysqli_fetch_assoc($searchedu)) 
                        { ?>
 
-                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
-                        <h6><?php  echo $edurow['discription'];?></h6>
-                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a><li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" > 
+                        <h6 ><?php  echo $edurow['discription'];?></h6>
+                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" name="deledu" >Delete</a><li>
                      <?php } 
                   }?>             
                 
@@ -211,7 +217,7 @@
                        { ?>
                       <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
                         <h6><?php  echo $exprow['Description'];?></h6>
-                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;">Edit</a><li>
+                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" name="delexp">Delete</a><li>
                      <?php  } 
                   }?> 
                 </ul>
