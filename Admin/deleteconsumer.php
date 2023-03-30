@@ -22,7 +22,7 @@
             include "Connection/connection.php";
             $consumerID=$_GET['delete'];
 
-            $check_projects_query=mysqli_query($conn,"select Consumer_ID from project");
+            $check_projects_query=mysqli_query($conn,"select Consumer_ID from project");            //check wether consumer has projects
             while ($row=mysqli_fetch_row($check_projects_query)){
                 if($row[0]==$consumerID){
                     die ('<div class="alert alert-danger" role="alert">
@@ -32,23 +32,27 @@
                 }
             }
 
-
-            $delete_address_query=mysqli_query($conn,"delete from address_of_consumer where Consumer_ID=$consumerID");
-            if($delete_address_query){
-                header("Location: consumer.php");
+            $delete_contact_query=mysqli_query($conn,"delete from phone_number_of_consumer where Consumer_ID=$consumerID");     //delete contacts of customer
+            if(!$delete_contact_query){
+                die ('<div class="alert alert-danger" role="alert">
+                        Could not delete contacts of this consumer...!<br><br>
+                        <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
+                        </div>');
             }
-            else if(!$delete_address_query){
+
+            $delete_address_query=mysqli_query($conn,"delete from address_of_consumer where Consumer_ID=$consumerID");      //delete address of consumer
+            if(!$delete_address_query){
                 die ('<div class="alert alert-danger" role="alert">
                         Could not delete address of this consumer...!<br><br>
                         <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
                         </div>');
             }
 
-            $delete_query = mysqli_query($conn,"delete from consumer where ID=$consumerID");
+            $delete_query = mysqli_query($conn,"delete from consumer where ID=$consumerID");                //delete consumer
             if($delete_query){
                 header("Location: consumer.php");
             }
-            else if(!$delete_query){
+            else{
                 die ('<div class="alert alert-danger" role="alert">
                         Could not delete this consumer...!<br><br>
                         <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
