@@ -58,8 +58,8 @@
     } 
 
 
-    $searchedu=mysqli_query($conn,"select discription from education where Worker_ID='696'");
-    $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID='696'");
+    $searchedu=mysqli_query($conn,"select ID,discription from education where Worker_ID='696'");
+    $searchexp=mysqli_query($conn,"select ID,Description from experince where Worker_ID='696'");
     
 
     if(isset($_POST['Save']))
@@ -106,9 +106,10 @@
     }}
 
 
-    if(isset($_POST["deledu"]))
+    if(isset($_POST["dex"]))
     {
-      $delq="DELETE FROM education WHERE some_column = some_value";
+      $delexpid=$_POST["delexp"];
+      $delq="DELETE FROM experince WHERE ID= '$delexpid'";
     }
 
 
@@ -214,10 +215,11 @@
                   <?php if($searchexp)
                   {
                      while ($exprow= mysqli_fetch_assoc($searchexp)) 
-                       { ?>
-                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
+                    {?>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" > 
+                        <?php $d=$exprow['ID']; ?>
                         <h6><?php  echo $exprow['Description'];?></h6>
-                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" name="delexp">Delete</a><li>
+                      <a href="woker view.php?delexp=<?php echo $exprow['ID'];?>" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" name="dex">Delete</a><li>
                      <?php  } 
                   }?> 
                 </ul>
