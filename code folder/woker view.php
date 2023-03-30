@@ -105,11 +105,19 @@
       
     }}
 
-
-    if(isset($_POST["dex"]))
+    
+    if(isset($_GET["expid"]))
     {
-      $delexpid=$_POST["delexp"];
-      $delq="DELETE FROM experince WHERE ID= '$delexpid'";
+      $expid=$_GET["expid"];
+      mysqli_query($conn,"DELETE FROM experince WHERE ID= $expid");
+      header('Location: woker view.php');
+    }
+
+    if(isset($_GET["eduid"]))
+    {
+      $eduid=$_GET["eduid"];
+      mysqli_query($conn,"DELETE FROM education WHERE ID= $eduid");
+      header('Location: woker view.php');
     }
 
 
@@ -192,10 +200,11 @@
                   {
                      while ($edurow= mysqli_fetch_assoc($searchedu)) 
                        { ?>
-
+                    
                       <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" > 
+                      <h6 ><?php  echo $edurow['ID'];?></h6>
                         <h6 ><?php  echo $edurow['discription'];?></h6>
-                      <a href="#" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" name="deledu" >Delete</a><li>
+                      <a href="woker view.php?eduid='<?php  echo $edurow["ID"];?>'" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" >Delete</a><li>
                      <?php } 
                   }?>             
                 
@@ -216,16 +225,21 @@
                   {
                      while ($exprow= mysqli_fetch_assoc($searchexp)) 
                     {?>
-                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" > 
-                        <?php $d=$exprow['ID']; ?>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" >
                         <h6><?php  echo $exprow['Description'];?></h6>
-                      <a href="woker view.php?delexp=<?php echo $exprow['ID'];?>" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" name="dex">Delete</a><li>
+                        <a href="woker view.php?expid='<?php  echo $exprow["ID"];?>'" class="btn btn-info" style="background-color:aliceblue; border-color: aliceblue;" >Delete</a><li>
                      <?php  } 
                   }?> 
                 </ul>
               </div>
             </div>
          
+           
+						
+					
+
+
+
             
             <div class="col-md-8" style="margin-top: 50px;">
               <div class="card mb-3">
