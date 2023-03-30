@@ -26,17 +26,17 @@
     $ImagePath=$_GET['ImagePath'];
 
 
-    $deleteImage=unlink($ImagePath);
-    $delete_service_query = mysqli_query($conn,"delete from service where ID=$serviceID");
-        if($delete_service_query){
-            header("Location: service.php");
-        }
-        else{
-            die ('<div class="alert alert-danger" role="alert">
-                            Could not delete this service...!<br><br>
-                            <a href="service.php"><button class="btn btn-primary">Ok</button></a>
-                            </div>');
-        }
+    $deleteImage=unlink($ImagePath);                    //remove service image
+    $delete_service_query = mysqli_query($conn,"delete from service where ID=$serviceID");          //delete service
+    if($delete_service_query){
+        header("Location: service.php");
+    }
+    else{
+        die ('<div class="alert alert-danger" role="alert">
+                Could not delete this service...!<br><br>
+                <a href="service.php"><button class="btn btn-primary">Ok</button></a>
+                </div>');
+    }
     ?>
 
 
