@@ -178,7 +178,7 @@
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" style="width:100%;"><label style="float:left;font-size:20px;"><b>Admin Panel - Karmikaya.lk</b></label>
-                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a> </label>
+                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a></label>
                 </div>
 
             </div>
@@ -208,6 +208,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="#">Chat</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="myProfile.php">My profile</a>
+                </li>
                 </ul>
             </div>
             <div class="card-body">
@@ -229,7 +232,7 @@
 
                             while($row=mysqli_fetch_assoc($query)){
                                 echo '<tr><td>'.$row["ID"].'</td><td>'.$row["First_Name"].'</td><td>'.$row["Email"].'</td><td>'.$row["Jobe_Category"].'</td>';
-                                echo "<td><a href='deleteworker.php?delete=".$row["ID"]."'><button type='button' class='btn btn-danger' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
+                                echo "<td><a href='deleteworker.php?delete=".$row["ID"]."'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
                                 
                             }
 

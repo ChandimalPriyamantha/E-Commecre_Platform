@@ -206,6 +206,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="#">Chat</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="myProfile.php">My profile</a>
+                </li>
                 </ul>
             </div>
             <div class="card-body">

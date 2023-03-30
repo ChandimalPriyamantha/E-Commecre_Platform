@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
     <html lang="en">
 
@@ -12,15 +14,19 @@
         <link rel="stylesheet" href="css/Button-Ripple-Effect-Animation-Wave-Pulse.css">
         <link rel="stylesheet" href="css/Features-Cards-icons.css">
         <link rel="stylesheet" href="css/responsive-blog-card-slider.css">
+        <title>Frontendfunn - Bootstrap 5 Admin Dashboard Template</title>
         <style>
             a{text-decoration:none;color:black;}
             th,td{padding-bottom:15px;}
-            #categoryID{
-                width:150px;
-                margin-left:15px;
-                height:35px;
-
-            }
+            .alert{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width:50%;
+            text-align:center;
+            font-weight:bold;
+            margin-top:3%;
+        }
 
         </style>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -30,10 +36,6 @@
             $(document).ready(function () {
                 $('#example').DataTable();
             });
-
-            function update(id,name,description){
-                document.getElementById("currentID").innerHTML=id;
-            }
         </script>
     </head>
 
@@ -187,61 +189,113 @@
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" style="width:100%;"><label style="float:left;font-size:20px;"><b>Admin Panel - Karmikaya.lk</b></label>
-                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a> </label>
+                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a></label>
                 </div>
 
             </div>
         </div>
 
         <div class="card text-center">
-            <div class="card-header alert-danger">
-                ADD SUBSCRIPTION
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="worker.php">Workers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="consumer.php">Consumers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="project.php">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="category.php">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="service.php">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="subscription.php">Subscriptions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="myProfile.php">My profile</a>
+                </li>
+                </ul>
             </div>
-                
             <div class="card-body">
-                <form action="add_subscription.php" method="post">
+                
+            
+                <?php
+                    include "Connection/connection.php";
+                    $id=$_SESSION['id'];
+                    $nic="No NIC proided";
+                    $fName=" ";
+                    $lName=" ";
+                    $sex="gender";
+                    $email="No email proided";
+                    $dob="No DOB proided";
+                    $imagePath=" ";
+                    $address="No address proided";
+                    $phoneNo="No phone number proided";
+
+                    $read_query=mysqli_query($conn,"select NIC,First_Name,Lat_Name,Sex,Email,DOB,Image_Path,Adress,Phone_number from admin where ID=$id");
+                    $row=mysqli_fetch_row($read_query);
+                        $nic=$row[0];
+                        $fName=$row[1];
+                        $lName=$row[2];
+                        $sex=$row[3];
+                        $email=$row[4];
+                        $dob=$row[5];
+                        $imagePath=$row[6];
+                        $address=$row[7];
+                        $phoneNo=$row[8];
+
                     
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Subscription ID :</b> </label>
-                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:255pt;" placeholder="Enter subscription ID (Numbers only)" required readonly value="<?php echo rand(1,999999999); ?>"><br>
-                    </div><br>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Subscription Name :</b> </label>
-                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:255pt;" placeholder="Enter new subscription name" required><br>
-                    </div><br>
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b> Description :</b> </label>
-                        <textarea class="form-control" name="inputDescription" style="text-align:center;width:255pt;" placeholder="Enter new subscription details" required></textarea><br>
-                    </div><br>
                     
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Cost :</b> </label>
-                        <input type="text" class="form-control" name="inputCost" style="text-align:center;width:255pt;" placeholder="Enter subscription cost" required><br>
-                    </div><br>
 
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                        <input type="submit" class=" btn btn-success"style="height:40px;width:100px;">
-                        <a href='subscription.php'><button type='button' class='btn btn-danger'style="height:40px;width:100px;"><lable>Cancel</lable></button></a>
+                echo '
+
+                <div class="container rounded bg-white mb-5">
+                    <div class="row">
+                        <div class="col-md-4 border-right">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5" style="float:right;"><img class="rounded-circle mt-5" width="150px" height="150px" src="'.$imagePath.'" ><br><span class="font-weight-bold">'.$fName.'</span><span class="text-black-50">'.$email.'</span><span> Admin ID : '."$id".'</span></div>
+                        </div>
+                        <div class="col-md-5 border-right item-right" >
+                            <div class="p-3 py-3">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h4 class="text-right">My Profile</h4>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-6"><label class="labels">First name</label><input type="text" class="form-control" placeholder="no first name" value="'.$fName.'" readonly ></div>
+                                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="'.$lName.'" placeholder=" no last name" readonly></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12"><label class="labels">National identity card number</label><input type="text" class="form-control" placeholder="no NIC number" value="'.$nic.'" readonly></div>
+                                    <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" placeholder="sex" value="'.$sex.'" readonly></div>
+                                    <div class="col-md-12"><label class="labels">Date of Birth</label><input type="text" class="form-control" placeholder="no DOB" value="'.$dob.'" readonly></div>
+
+                                    <div class="col-md-12"><label class="labels">Mobile number</label><input type="text" class="form-control" placeholder="no phone number" value="'.$phoneNo.'" readonly></div>
+                                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="no address" value="'.$address.'" readonly></div>
+                                </div>
+                                
+                                <div class="mt-5 text-center"><a href="update_profile_form.php"><button class="btn btn-primary" type="button">Update Profile</button></a>
+                                <a href="delete_profile_alert.php"><button class="btn btn-danger " type="button">Delete Profile</button></a></div>
+                            </div>
                         </div>
                     </div>
+                </div>
 
 
+                ';
+                ?>
 
-                </form>
+
             </div>
         </div>
-
-
-
-
-
-
         </main>
     </body>
 
     </html>
-<?php
-?>
+

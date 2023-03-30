@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/Button-Ripple-Effect-Animation-Wave-Pulse.css">
         <link rel="stylesheet" href="css/Features-Cards-icons.css">
-         <link rel="stylesheet" href="css/responsive-blog-card-slider.css">
-         <style>
+        <link rel="stylesheet" href="css/responsive-blog-card-slider.css">
+        <style>
             a{text-decoration:none;color:black;}
             th,td{padding-bottom:15px;}
 
@@ -206,6 +206,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="#">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="myProfile.php">My profile</a>
                 </li>
                 </ul>
             </div>

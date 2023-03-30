@@ -196,17 +196,17 @@
                 <form action="add_category.php" method="post">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" style="width:250px"><b>Category ID :</b> </label>
-                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter category ID (Numbers only)"><br>
+                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter category ID (Numbers only)" required readonly value="<?php echo rand(1,999999999); ?>"><br>
                     </div><br>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" style="width:250px"><b>Category Name :</b> </label>
-                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new category name"><br>
+                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new category name" required><br>
                     </div><br>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" style="width:250px"><b>Category Description :</b> </label>
-                        <textarea class="form-control" name="inputDescription" style="text-align:center;width:220pt;" placeholder="Enter new category description"></textarea><br>
+                        <textarea class="form-control" name="inputDescription" style="text-align:center;width:220pt;" placeholder="Enter new category description" required></textarea><br>
                     </div><br>
 
                     <div class="form-group row">

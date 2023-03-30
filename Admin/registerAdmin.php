@@ -41,7 +41,7 @@
                 $file_temp_name=$_FILES['inputProfilePicture']['tmp_name'];
                 $file_upload_to='AdminProfilePictures/';
 
-                $readQuery=mysqli_query($conn,"select ID,NIC,Email from admin");
+                $readQuery=mysqli_query($conn,"select ID,NIC,Email from admin");        //check whether id , email, or Nic is existing or not
                 while($row=mysqli_fetch_row($readQuery)){
                     if($row[0]==$id){
                         die ('<div class="alert alert-danger" role="alert">
@@ -101,8 +101,10 @@
                                 </div>');
                         }
                         else{
-                            echo "<script>alert('Successfully Registered');</script>";
-                            header("Location: login.php");
+                            die( '<div class="alert alert-success" role="alert">
+                                Successfully registered...<br><br>
+                                <a href="login_form.php"><button class="btn btn-primary">Ok</button></a>
+                                </div>');
                         }
                     }
                     else if($file_type=='image/png'){

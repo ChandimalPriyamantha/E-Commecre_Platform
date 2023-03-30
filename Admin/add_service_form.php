@@ -203,17 +203,17 @@
                     
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" style="width:250px"><b>Service ID :</b> </label>
-                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter service ID (Numbers only)"><br>
+                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter service ID (Numbers only)" required readonly value="<?php echo rand(1,999999999); ?>"><br>
                     </div><br>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" style="width:250px"><b>Service Name :</b> </label>
-                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new service name"><br>
+                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:220pt;" placeholder="Enter new service name" required><br>
                     </div><br>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" style="width:250px"><b>Service Details :</b> </label>
-                        <textarea class="form-control" name="inputDetails" style="text-align:center;width:220pt;" placeholder="Enter new service details"></textarea><br>
+                        <textarea class="form-control" name="inputDetails" style="text-align:center;width:220pt;" placeholder="Enter new service details" required></textarea><br>
                     </div><br>
 
                     <div class="form-group row">
@@ -232,7 +232,7 @@
 
                     <div class="mb-3"style="text-align:left;width:100%;">
                         <label class="col-sm-2 col-form-label"style="width:350px;text-align:left;">Select service image (jpeg & png only): </label>
-                        <input type="file" name="serviceImage" style="width:400px;" accept=".jpeg,.png">
+                        <input type="file" name="serviceImage" style="width:400px;" accept=".jpeg,.png" required>
                     </div>
 
                     <div class="form-group row">

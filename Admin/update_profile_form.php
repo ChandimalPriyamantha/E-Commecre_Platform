@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
     <html lang="en">
 
@@ -12,15 +14,26 @@
         <link rel="stylesheet" href="css/Button-Ripple-Effect-Animation-Wave-Pulse.css">
         <link rel="stylesheet" href="css/Features-Cards-icons.css">
         <link rel="stylesheet" href="css/responsive-blog-card-slider.css">
+        <title>Frontendfunn - Bootstrap 5 Admin Dashboard Template</title>
         <style>
             a{text-decoration:none;color:black;}
             th,td{padding-bottom:15px;}
-            #categoryID{
+            .alert{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width:50%;
+                text-align:center;
+                font-weight:bold;
+                margin-top:3%;
+            }
+            #gender{
                 width:150px;
                 margin-left:15px;
                 height:35px;
 
             }
+            
 
         </style>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -31,8 +44,17 @@
                 $('#example').DataTable();
             });
 
-            function update(id,name,description){
-                document.getElementById("currentID").innerHTML=id;
+            function showPassword() {
+                var x = document.getElementById("pass1");
+                var y = document.getElementById("pass2");
+                
+                if ((x.type === "password")&&(y.type === "password")) {
+                    x.type = "text";
+                    y.type = "text";
+                } else {
+                    x.type = "password";
+                    y.type = "password";
+                }
             }
         </script>
     </head>
@@ -187,61 +209,112 @@
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" style="width:100%;"><label style="float:left;font-size:20px;"><b>Admin Panel - Karmikaya.lk</b></label>
-                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a> </label>
+                    <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a></label>
                 </div>
 
             </div>
         </div>
 
         <div class="card text-center">
-            <div class="card-header alert-danger">
-                ADD SUBSCRIPTION
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="worker.php">Workers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="consumer.php">Consumers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="project.php">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="category.php">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="service.php">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="subscription.php">Subscriptions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="myProfile.php">My profile</a>
+                </li>
+                </ul>
             </div>
-                
             <div class="card-body">
-                <form action="add_subscription.php" method="post">
-                    
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Subscription ID :</b> </label>
-                        <input type="number" class="form-control" name="inputID" style="text-align:center;width:255pt;" placeholder="Enter subscription ID (Numbers only)" required readonly value="<?php echo rand(1,999999999); ?>"><br>
-                    </div><br>
+                
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Subscription Name :</b> </label>
-                        <input type="text" class="form-control" name="inputName" style="text-align:center;width:255pt;" placeholder="Enter new subscription name" required><br>
-                    </div><br>
+            <div class="container py-3">
+                <div class="card text-center" style="border-radius: 1rem;margin-left:10%;margin-right:10%">
+                    <div class="card-body p-lg-5 ">
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b> Description :</b> </label>
-                        <textarea class="form-control" name="inputDescription" style="text-align:center;width:255pt;" placeholder="Enter new subscription details" required></textarea><br>
-                    </div><br>
-                    
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:250px"><b>Cost :</b> </label>
-                        <input type="text" class="form-control" name="inputCost" style="text-align:center;width:255pt;" placeholder="Enter subscription cost" required><br>
-                    </div><br>
+                        <form action="update_profile.php" method="POST" enctype="multipart/form-data" >
+                            <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;"><b>Update Profile</b></h5>
 
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                        <input type="submit" class=" btn btn-success"style="height:40px;width:100px;">
-                        <a href='subscription.php'><button type='button' class='btn btn-danger'style="height:40px;width:100px;"><lable>Cancel</lable></button></a>
-                        </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Admin ID :</label>
+                                <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" readonly value="<?php echo $_SESSION['id']; ?>"><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> First name :</label>
+                                <input type="text" class="form-control" name="inputFName" style="text-align:center;width:220pt;" ><br>
+                            </div><br>
+                            
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Last name :</label>
+                                <input type="text" class="form-control" name="inputLName" style="text-align:center;width:220pt;" ><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px;"> Phone number : </label>
+                                <input type="text" class="form-control" name="inputPhoneNumber" style="text-align:center;width:220pt;" ><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px;"> Address :</label>
+                                <textarea class="form-control" name="inputAddress" style="text-align:left;width:220pt;" ></textarea><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> Gender :</label>
+                                <select name="inputGender" id="gender">
+                                    <option value="" selected>Choose</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select><br>
+                            </div><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:250px"> DOB :</label>
+                                <input type="date" class="form-control" name="inputDOB" style="text-align:center;width:220pt;" ><br>
+                            </div><br><br>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" style="width:300px;"> Profile picture (jpg and png only)</label>
+                                <input type="file" name="inputProfilePicture" style="width:400px;" accept=".jpeg,.png" ><br>
+                            </div><br>
+
+
+                            <div class="pt-1 mb-4">
+                                <input type="submit" name="submit" value="Update" class="btn btn-success  btn-block" >&emsp;
+                                <a href="myProfile.php" ><input type="button" name="cancel" value="Cancel" class="btn btn-danger  btn-block" ></a>
+                            </div>
+                        </form> 
+                
                     </div>
+                </div>
+            </div>
 
 
 
-                </form>
             </div>
         </div>
-
-
-
-
-
-
         </main>
     </body>
 
     </html>
-<?php
-?>
+

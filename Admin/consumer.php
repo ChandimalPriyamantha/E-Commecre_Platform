@@ -208,6 +208,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="#">Chat</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="myProfile.php">My profile</a>
+                </li>
                 </ul>
             </div>
             <div class="card-body">
@@ -229,7 +232,7 @@
 
                             while($row=mysqli_fetch_row($query)){
                                 echo "<tr><td>$row[0]</td><td>$row[2]</td><td>$row[5]</td>
-                                <td><a href='deleteconsumer.php?delete=$row[0]'><button type='button' class='btn btn-danger' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
+                                <td><a href='deleteconsumer.php?delete=$row[0]'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
                                 
                             }
 

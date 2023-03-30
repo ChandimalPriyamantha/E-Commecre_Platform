@@ -57,6 +57,7 @@
                     }
                    $add_service_query=mysqli_query($conn,"insert into service values($serviceID,'$serviceName','$serviceDetails','$file_upload_to$serviceID.jpeg','$categoryID')");
                    if(!$add_service_query){
+                        echo mysqli_error($conn);
                         die( '<div class="alert alert-danger" role="alert">
                         Could not add new service to the data base<br><br>
                         <a href="add_service_form.php"><button class="btn btn-primary">Ok</button></a>
@@ -77,6 +78,7 @@
                     }
                    $add_service_query=mysqli_query($conn,"insert into service values($serviceID,'$serviceName','$serviceDetails','$file_upload_to$serviceID.png','$categoryID')");
                    if(!$add_service_query){
+                        echo mysqli_error($conn);
                         echo die( '<div class="alert alert-danger" role="alert">
                         Could not add new service to the data base<br><br>
                         <a href="add_service_form.php"><button class="btn btn-primary">Ok</button></a>

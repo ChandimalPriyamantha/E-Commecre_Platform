@@ -216,7 +216,7 @@
 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label" style="width:250px">Admin ID :</label>
-                                <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Enter Admin ID (Numbers only)" required><br>
+                                <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Admin ID (Numbers only)" required readonly value="<?php echo rand(1,999999999); ?>"><br>
                             </div><br>
 
                             <div class="form-group row">

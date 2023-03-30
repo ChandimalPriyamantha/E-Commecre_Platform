@@ -22,7 +22,7 @@
             include "Connection/connection.php";
             $subID=$_GET['delete'];
 
-            $workerSubscriptions=mysqli_query($conn,"select Subscription_ID from payment");
+            $workerSubscriptions=mysqli_query($conn,"select Subscription_ID from payment");         //check whether this subsription has bought by any worker
             while ( $row=mysqli_fetch_row($workerSubscriptions)){
                 if ($row[0]==$subID){
                     die ('<div class="alert alert-danger" role="alert">
@@ -32,7 +32,7 @@
                 }
             }
 
-            $delete_subscription_query = mysqli_query($conn,"delete from subscription where ID=$subID");
+            $delete_subscription_query = mysqli_query($conn,"delete from subscription where ID=$subID");            //delete subscription 
             if($delete_subscription_query){
                 header("Location: subscription.php");
             }
