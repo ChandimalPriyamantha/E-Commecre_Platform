@@ -232,7 +232,7 @@
 
                             while($row=mysqli_fetch_assoc($query)){
                                 echo '<tr><td>'.$row["ID"].'</td><td>'.$row["First_Name"].'</td><td>'.$row["Email"].'</td><td>'.$row["Jobe_Category"].'</td>';
-                                echo "<td><a href='deleteworker.php?delete=".$row["ID"]."'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a></td>";
+                                echo "<td><a href='deleteworker.php?delete=".$row["ID"]."'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a></td></tr>";
                                 
                             }
 

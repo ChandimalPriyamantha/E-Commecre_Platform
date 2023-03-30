@@ -221,6 +221,7 @@
                             <th>Project Name</th>
                             <th>Concumer ID</th>
                             <th>Budget</th>
+                            <th></th>
                             
                         </tr>
                     </thead>
@@ -230,7 +231,10 @@
                             $query=mysqli_query($conn,'select * from project');
 
                             while($row=mysqli_fetch_row($query)){
-                                echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[8]</td><td>$row[3]</td>";
+                                echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[8]</td><td>$row[3]</td>
+                                <td>
+                                <a href='delete_project.php?delete=$row[0]'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a>
+                                </td></tr>";
                             }
 
 

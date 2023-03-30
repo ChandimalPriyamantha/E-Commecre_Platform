@@ -235,7 +235,7 @@
                                 <td>
                                 <a href='updateservice_form.php?currentSID=$row[0]'><button type='button' class='btn btn-success btn-sm'><lable style='color:white' >Update</lable></button></a>
                                 <a href='deleteservice.php?delete=$row[0]&&ImagePath=$row[4]'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a>
-                                </td>";
+                                </td></tr>";
                                 
                             }
 

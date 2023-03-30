@@ -234,7 +234,7 @@
                                 <td>
                                 <a href='updatecategory_form.php?updateID=$row[0]'><button type='button' class='btn btn-success btn-sm'><lable style='color:white' >Update</lable></button></a>
                                 <a href='deletecategory.php?delete=$row[0]'><button type='button' class='btn btn-danger btn-sm' name='delete'><lable style='color:white' >Remove</lable></button></a>
-                                </td>";
+                                </td></tr>";
                                 
                             }
 
