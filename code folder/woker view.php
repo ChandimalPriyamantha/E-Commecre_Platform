@@ -343,39 +343,26 @@
                     </div>
                   </div>
                 </div>
+                <?php  
+                  $reviewResult=mysqli_query($conn,"select name,description from review");
+                  if($reviewResult){
+                  while ($reviewrow= mysqli_fetch_assoc($reviewResult)) 
+                  {
+                ?>
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Asama </h6>
-                      <small>very good worker</small>
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i><?php echo $reviewrow[""];?> </h6>
+                      <small><?php  $reviewrow[""];  ?></small>
                       <!-- <div class="progress mb-3" style="height: 10px;">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> 
                       </div> -->
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Asama</h6>
-                      <small>very good worker</small>
-                      <!-- <div class="progress mb-3" style="height: 10px;">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> 
-                      </div> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mb-3">
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Asama </h6>
-                      <small>very good worker</small>
-                      <!-- <div class="progress mb-3" style="height: 10px;">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> 
-                      </div> -->
-                    </div>
-                  </div>
-                </div>
+                <?php  }} ?>
+               
+             
                 
               </div>
 
