@@ -206,7 +206,7 @@
                     <a class="nav-link " href="subscription.php">Subscriptions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Chat</a>
+                    <a class="nav-link " href="../ChatBox/chatBox.php" target="_blank" >Chat</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="myProfile.php">My profile</a>
