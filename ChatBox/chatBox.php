@@ -126,6 +126,20 @@
         </form>
     
         <?php
+
+            // Connect to the database
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "karmikayadb";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+                }
+
             // Handle form submission
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $senderid = $_POST["senderid"];
@@ -142,7 +156,11 @@
                 echo "Error: " . $sql . "<br>" . $conn->error;
               }
             }
+
+            // Close database connection
+                $conn->close();
         ?>
+        
 
 
     </main>
