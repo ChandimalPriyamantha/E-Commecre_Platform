@@ -102,7 +102,7 @@ $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID
                     <!-- methan thamai workerge poto eka daana thena hrithe ????????????-->
                     <img src="<?php echo $Dimage; ?>" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4> <?php echo $Dfname;   ?> </h4>
+                      <h4> <?php echo $Dfname ." " . $Dlname;   ?> </h4>
                       <p class="text-secondary mb-1"><?php  echo $Dcategory;  ?> </p>
                       <p class="text-muted font-size-sm"><?php echo $DCity; ?> </p></p>
                       <button class="btn btn-primary">Follow</button> 
@@ -161,7 +161,7 @@ $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    <?php  echo $Dfname; ?>
+                    <?php  echo $Dfname ." " . $Dlname;  ?>
                     </div>
                   </div>
                   <hr>
@@ -248,7 +248,7 @@ $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID
                   </div>
                 </div>
                 <?php  
-                  $reviewResult=mysqli_query($conn,"select name,description from review");
+                  $reviewResult=mysqli_query($conn,"select name,description from review where worker_id=696");
                   if($reviewResult){
                   while ($reviewrow= mysqli_fetch_assoc($reviewResult)) 
                   {
@@ -256,8 +256,8 @@ $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i><?php echo $reviewrow[""];?> </h6>
-                      <small><?php  $reviewrow[""];  ?></small>
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i><?php echo $reviewrow["name"];?> </h6>
+                      <small><?php  echo $reviewrow["description"];  ?></small>
                       <!-- <div class="progress mb-3" style="height: 10px;">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> 
                       </div> -->

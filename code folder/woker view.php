@@ -175,7 +175,7 @@
                     <input type="submit" name="edit" value="Upload">
                     </form>
                     <div class="mt-3">
-                      <h4><?php echo $Dfname;   ?></h4>
+                      <h4><?php echo $Dfname ." " . $Dlname;     ?></h4>
                       <p class="text-secondary mb-1"><?php  echo $Dcategory;  ?></p>
                       <p class="text-muted font-size-sm"><?php echo $DCity; ?></p>
                       <!-- <button class="btn btn-primary">Follow</button> -->
@@ -250,7 +250,7 @@
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <input type="text" name="fullname" value="<?php  echo $Dfname ?>">
+                      <input type="text" name="fullname" value="<?php  echo $Dfname ." " . $Dlname;   ?>">
                     </div>
                   </div>
                   <hr>
@@ -344,7 +344,7 @@
                   </div>
                 </div>
                 <?php  
-                  $reviewResult=mysqli_query($conn,"select name,description from review");
+                  $reviewResult=mysqli_query($conn,"select name,description from review where worker_id=696");
                   if($reviewResult){
                   while ($reviewrow= mysqli_fetch_assoc($reviewResult)) 
                   {
@@ -352,8 +352,8 @@
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i><?php echo $reviewrow[""];?> </h6>
-                      <small><?php  $reviewrow[""];  ?></small>
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i><?php echo $reviewrow["name"];?> </h6>
+                      <small><?php  echo $reviewrow["description"];  ?></small>
                       <!-- <div class="progress mb-3" style="height: 10px;">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> 
                       </div> -->
