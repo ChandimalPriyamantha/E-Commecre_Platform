@@ -22,7 +22,7 @@
             include "Connection/connection.php";
             $consumerID=$_GET['delete'];
 
-            $check_projects_query=mysqli_query($conn,"select Consumer_ID from project");            //check wether consumer has projects
+            /*$check_projects_query=mysqli_query($conn,"select Consumer_ID from project");            //check wether consumer has projects
             while ($row=mysqli_fetch_row($check_projects_query)){
                 if($row[0]==$consumerID){
                     die ('<div class="alert alert-danger" role="alert">
@@ -30,9 +30,25 @@
                         <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
                         </div>');
                 }
+            }*/
+
+            $delete_bid_query=mysqli_query($conn,"delete from bid where Project_Consumer_ID=$consumerID");      //delete bid details of customer
+            if(!$delete_bid_query){
+                die ('<div class="alert alert-danger" role="alert">
+                Could not delete bid details related to this customer and his projects...!<br><br>
+                <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
+                </div>');
             }
 
-            $delete_contact_query=mysqli_query($conn,"delete from phone_number_of_consumer where Consumer_ID=$consumerID");     //delete contacts of customer
+            $delete_project_query=mysqli_query($conn,"delete from project where Consumer_ID=$consumerID");     //delete projects of consumer
+            if(!$delete_project_query){
+                die ('<div class="alert alert-danger" role="alert">
+                        Could not delete projects of this consumer...!<br><br>
+                        <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
+                        </div>');
+            }
+
+            $delete_contact_query=mysqli_query($conn,"delete from phone_number_of_consumer where Consumer_ID=$consumerID");     //delete contacts of consumer
             if(!$delete_contact_query){
                 die ('<div class="alert alert-danger" role="alert">
                         Could not delete contacts of this consumer...!<br><br>

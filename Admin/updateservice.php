@@ -40,6 +40,18 @@
     }
     else {
         if ($newName){
+
+            $readQuery=mysqli_query($conn,"select Name from Service");
+            while($row=mysqli_fetch_row($readQuery)){
+                if($row[0]==$newName){
+                    die ('<div class="alert alert-danger" role="alert">
+                    Service Name is existing...<br><br>
+                    <a href="updateservice_form.php?currentSID='.$currentSID.'"><button class="btn btn-primary">Ok</button></a>
+                    </div>');
+                }
+                
+            }
+
             $update_query=mysqli_query($conn,"update service set Name='$newName' where ID='$currentSID'");
             if(!$update_query){
                 echo '<div class="alert alert-danger" role="alert">
