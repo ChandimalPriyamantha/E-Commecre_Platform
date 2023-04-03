@@ -156,31 +156,63 @@
        
     
 
-    if($password==$password1)
+    if(($fname !=null && $lname!=null && $nic!=null && $dob!=null && $jobcategory!=null && $password!=null && $password1!=null && $zip!=null && $street!=null && $city!=null && $country!=null) &&  ($homeno!=null || $workplaceno!=null ||  $mobileno!=null))
     {
+        if($password==$password1)
+        {
 
-     $workQ=mysqli_query($conn,"INSERT INTO worker (NIC, First_Name, Lat_Name, Sex, Email, DOB, Password,Jobe_Category)
-     VALUES ('$nic','$fname','$lname','$sex','$email','$dob','$password','$jobcategory' )");
+            if (!preg_match("/[a-zA-Z ]/",$fname))
+            {
+               
+                $workQ=mysqli_query($conn,"INSERT INTO worker (NIC, First_Name, Lat_Name, Sex, Email, DOB, Password,Jobe_Category)
+                VALUES ('$nic','$fname','$lname','$sex','$email','$dob','$password','$jobcategory' )");
 
-     $idQ=mysqli_query($conn,"select ID from worker where NIC='$nic'");
-     while($row = mysqli_fetch_assoc($idQ)) {
-        $id=$row["ID"];
-      }
+            }
+            else
+            {
+                echo  " <script type='text/javascript'>";
+                echo  "alert('')";
+                echo  "</script>";
+            }
 
-     $contactQ=mysqli_query($conn,"INSERT INTO `phone_number_of_worker` (`Mobile_Number`, `Home_Number`, `Work_Place_Number`, `Worker_ID`)
-      VALUES ('$mobileno', '$homeno', '$workplaceno','$id');");
 
-      $addressQ=mysqli_query($conn,"INSERT INTO `address_of_worker` (`Recipient's name`, `Business's name`, ` ZIP code`, `State`, `Country`, `City`, `Street_address`, `Worker_ID`) 
-      VALUES ('$recepName', '$buisName', '$zip', '$state', '$country', '$city', '$street', '$id');");
+      
+   
+        $idQ=mysqli_query($conn,"select ID from worker where NIC='$nic'");
+        while($row = mysqli_fetch_assoc($idQ))
+         {
+           $id=$row["ID"];
+         }
+   
+        $contactQ=mysqli_query($conn,"INSERT INTO `phone_number_of_worker` (`Mobile_Number`, `Home_Number`, `Work_Place_Number`, `Worker_ID`)
+         VALUES ('$mobileno', '$homeno', '$workplaceno','$id');");
+   
+         $addressQ=mysqli_query($conn,"INSERT INTO `address_of_worker` (`Recipient's name`, `Business's name`, ` ZIP code`, `State`, `Country`, `City`, `Street_address`, `Worker_ID`) 
+         VALUES ('$recepName', '$buisName', '$zip', '$state', '$country', '$city', '$street', '$id');");
+   
 
+        }
+
+        else
+         {
+            //error message passwords are not matching
+         echo  " <script type='text/javascript'>";
+         echo  "alert('Passwords are not matching')";
+         echo  "</script>";
+        
+         }
+        }
+
+        else
+        {
+         echo  " <script type='text/javascript'>";
+         echo  "alert('Fill All the Required Fields')";
+         echo  "</script>";
+        }
+     
     }
 
-    else
-    {
-        //error message passwords are not matching
-
-    }
-}
+    
 
 
 
