@@ -59,155 +59,29 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
                     <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
                 </button>
-                <a class="navbar-brand me-auto ms-lg-0 ms-3  fw-bold" href="#"><i class="bi bi-circle me-3"></i>Clothing Managment System</a>
+                <a class="navbar-brand me-auto ms-lg-0 ms-3  fw-bold" href="#"><i class="bi bi-circle me-3"></i>Karmikaya.lk - Admin Panel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="topNavBar">
                     <form class="d-flex ms-auto my-3 my-lg-0">
-                        <div class="input-group">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-success" type="submit">
-                                <i class="bi bi-search"></i>
-                            </button>
-                        </div>
+                        
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link  ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-fill"></i>
-                            Hi, <?php //echo $_SESSION['name'] ?>
+                            Welcome, Admin
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Aboute</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
-                                </li>
-                            </ul>
+                            
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- top navigation bar -->
-        <!-- offcanvas -->
-        <div class="offcanvas offcanvas-start sidebar-nav bg-success" tabindex="-1" id="sidebar">
-            <div class="offcanvas-body p-0">
-                <nav class="navbar-dark">
-                    <ul class="navbar-nav">
-                        <li>
-                            <div class="text-white small fw-bold text-uppercase px-3">
-                                CORE
-                            </div>
-                        </li>
-                        <li>
-                            <a href="admin.php" class="nav-link px-3 active">
-                                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="my-4">
-                            <hr class="dropdown-divider bg-light" />
-                        </li>
-                        <li>
-                            <div class="text-white small fw-bold text-uppercase px-3 mb-3">
-                                Interface
-                            </div>
-                        </li>
-                        <li>
-                            <a class="nav-link px-3 sidebar-link" data-bs-toggle="collapse" href="#layouts">
-                                <span class="me-2"><i class="bi bi-layout-split"></i></span>
-                                <span>Somthing</span>
-                                <span class="ms-auto">
-                                    <span class="right-icon">
-                                        <i class="bi bi-chevron-down"></i>
-                                    </span>
-                                </span>
-                            </a>
-                            <div class="collapse" id="layouts">
-                                <ul class="navbar-nav ps-3">
-                                    <li>
-                                        <a href="writting.php" class="nav-link px-3">
-                                            <span class="me-2"><i class="bi bi-pen"></i></span>
-                                            <span>Somthing</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="listening.php" class="nav-link px-3">
-                                            <span class="me-2"><i class="bi bi-file-earmark-music"></i></span>
-                                            <span>Somthing</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="reading.php" class="nav-link px-3">
-                                            <span class="me-2"><i class="bi bi-bookmark-dash"></i></span>
-                                            <span>Somthing</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="spoken.php" class="nav-link px-3">
-                                            <span class="me-2"><i class="bi bi-megaphone"></i></i></span>
-                                            <span>Somthing</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="add-student.php" class="nav-link px-3">
-                                <span class="me-2"><i class="bi bi-person-plus"></i></span>
-                                <span>Somthing</span>
-                            </a>
-                        </li>
-                        <li class="my-4">
-                            <hr class="dropdown-divider bg-light" />
-                        </li>
-                        <li>
-                            <div class="text-white small fw-bold text-uppercase px-3 mb-3">
-                                Addons
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link px-3">
-                                <span class="me-2"><i class="bi bi-graph-up"></i></span>
-                                <span>Charts</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link px-3">
-                                <span class="me-2"><i class="bi bi-table"></i></span>
-                                <span>Tables</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- offcanvas -->
-
-
-
-
-
-
-
-
-
-
-
-        <main class="mt-5 pt-3"> <!-- ---------------------------------------------------------Body-->
-            <div class="card text-center">
-                <div class="card-header" style="background-color:rgb(50,200,50,0.2);">
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" style="width:100%;"><label style="float:left;font-size:20px;"><b>Admin Panel - Karmikaya.lk</b></label>
-                    </div>
-
-                </div>
-            </div>
-            
-            <div class="container py-3">
+    
+            <div class="container py-3" style="margin-top:70px">
                 <div class="card text-center" style="border-radius: 1rem;background-color:rgb(150,0,60,0.2);margin-left:10%;margin-right:10%">
                     <div class="card-body p-lg-5 ">
 
@@ -215,63 +89,63 @@
                             <h5 class="fw-normal mb-2 pb-2" style="letter-spacing: 1px;"><b>Register as an admin</b></h5>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px">Admin ID :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%">Admin ID :</label>
                                 <input type="number" class="form-control" name="inputID" style="text-align:center;width:220pt;" placeholder="Admin ID (Numbers only)" required readonly value="<?php echo rand(1,999999999); ?>"><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> NIC :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> NIC :</label>
                                 <input type="text" class="form-control" name="inputNIC" style="text-align:center;width:220pt;" required ><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> First name :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> First name :</label>
                                 <input type="text" class="form-control" name="inputFName" style="text-align:center;width:220pt;" required><br>
                             </div><br>
                             
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> Last name :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> Last name :</label>
                                 <input type="text" class="form-control" name="inputLName" style="text-align:center;width:220pt;" required><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> Email :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> Email :</label>
                                 <input type="email" class="form-control" name="inputEmail" style="text-align:center;width:220pt;"required ><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"><b> Admin secret code (given by the companny) :</b></label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"><b> Admin secret code (given by the companny) :</b></label>
                                 <input type="password" class="form-control" id="inputSecretCode" name="inputSecretCode" style="text-align:center;width:220pt;"required ><br>
                             </div><br>
 
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> Password :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> Password :</label>
                                 <input type="password" class="form-control" id="pass1" name="inputPassword1" style="text-align:center;width:220pt;" required><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px;"> Re enter password :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%;"> Re enter password :</label>
                                 <input type="password" class="form-control" id="pass2" name="inputPassword2" style="text-align:center;width:220pt;" required><br>
                             </div>
 
                             <div class="form-group row">
-                            <label class="col-sm-2 col-form-label" style="width:250px;margin:auto" > Show password
+                            <label class="col-sm-2 col-form-label" style="width:200px;margin-left:auto;margin-right:25%" > Show password
                             <input type="checkbox" style="text-align:center;" onclick="showPassword()"> </label>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px;"> Phone number : </label>
+                                <label class="col-sm-2 col-form-label" style="width:50%;"> Phone number : </label>
                                 <input type="text" class="form-control" name="inputPhoneNumber" style="text-align:center;width:220pt;" required><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px;"> Address :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%;"> Address :</label>
                                 <textarea class="form-control" name="inputAddress" style="text-align:left;width:220pt;" required></textarea><br>
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> Gender :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> Gender :</label>
                                 <select name="inputGender" id="gender">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -279,12 +153,12 @@
                             </div><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:250px"> DOB :</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%"> DOB :</label>
                                 <input type="date" class="form-control" name="inputDOB" style="text-align:center;width:220pt;" required><br>
                             </div><br><br>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label" style="width:300px;"> Profile picture (jpg and png only)</label>
+                                <label class="col-sm-2 col-form-label" style="width:50%;"> Profile picture (jpg and png only)</label>
                                 <input type="file" name="inputProfilePicture" style="width:400px;" accept=".jpeg,.png" required><br>
                             </div><br>
 
@@ -300,7 +174,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+
     </body>
 </html>
 

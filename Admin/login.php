@@ -25,11 +25,14 @@
             $enteredPassword=md5($_POST['password']);
 
 
-            $readQuery=mysqli_query($conn,"select ID,Email,Password from admin");
+            $readQuery=mysqli_query($conn,"select ID,Email,Password,First_Name from admin");
                 while($row=mysqli_fetch_row($readQuery)){
                     if(($row[1]==$enteredEmail)&&($row[2]==$enteredPassword)){
                         session_start();
                         $_SESSION["id"]=$row[0];
+                        $_SESSION["email"]=$row[1];
+                        $_SESSION["password"]=$row[2];
+                        $_SESSION["name"]=$row[3];
                         header("Location: worker.php");
                     }
                     

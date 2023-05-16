@@ -1,3 +1,6 @@
+<?php  
+include "identify_admin.php";
+?>
 <!DOCTYPE html>
     <html lang="en">
 
@@ -35,32 +38,25 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
                     <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
                 </button>
-                <a class="navbar-brand me-auto ms-lg-0 ms-3  fw-bold" href="#"><i class="bi bi-circle me-3"></i>Clothing Managment System</a>
+                <a class="navbar-brand me-auto ms-lg-0 ms-3  fw-bold" href="#"><i class="bi bi-circle me-3"></i>Karmikaya.lk - Admin Panel</a>
+                
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="topNavBar">
                     <form class="d-flex ms-auto my-3 my-lg-0">
                         <div class="input-group">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-success" type="submit">
-                                <i class="bi bi-search"></i>
-                            </button>
+                        <a href="logOut.php" ><button type='button' class='btn btn-danger btn-sm' style="float:right;"><lable style='color:white' >Log Out</lable></button></a> 
                         </div>
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link  ms-2" href="myProfile.php" role="button">
                                 <i class="bi bi-person-fill"></i>
-                            Hi, <?php //echo $_SESSION['name'] ?>
+                            Hi, <?php echo $_SESSION['name'] ?>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Aboute</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
-                                </li>
-                            </ul>
+                            
                         </li>
                     </ul>
                 </div>
@@ -68,7 +64,7 @@
         </nav>
         <!-- top navigation bar -->
         <!-- offcanvas -->
-        <div class="offcanvas offcanvas-start sidebar-nav bg-success" tabindex="-1" id="sidebar">
+        <!--<div class="offcanvas offcanvas-start sidebar-nav bg-success" tabindex="-1" id="sidebar">
             <div class="offcanvas-body p-0">
                 <nav class="navbar-dark">
                     <ul class="navbar-nav">
@@ -159,7 +155,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>
+        </div>-->
         <!-- offcanvas -->
 
 
@@ -172,8 +168,8 @@
 
 
 
-        <main class="mt-5 pt-3"> <!-- ---------------------------------------------------------Body-->
-        <div class="card text-center">
+        <!--<main class="mt-5 pt-3">--> <!-- ---------------------------------------------------------Body-->
+        <!--<div class="card text-center">
             <div class="card-header" style="background-color:rgb(50,200,50,0.2);">
 
                 <div class="form-group row">
@@ -182,9 +178,9 @@
                 </div>
 
             </div>
-        </div>
+        </div>-->
 
-        <div class="card text-center">
+        <div class="card text-center" style="margin-top:70px">
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
@@ -246,7 +242,7 @@
             
             
         </div>
-        </main>
+        <!--</main>-->
     </body>
 
     </html>

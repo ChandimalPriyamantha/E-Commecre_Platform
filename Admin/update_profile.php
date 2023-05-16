@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php  
+include "identify_admin.php";
+?>
 <html>
     <head>
         <meta charset="UTF-8" />
