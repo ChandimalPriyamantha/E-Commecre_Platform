@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "1234";
-$dbname = "elpdb";
+$dbname = "Karmikayadb";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password,$dbname);

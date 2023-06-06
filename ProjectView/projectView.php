@@ -84,16 +84,19 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Action</th>
+                        
+                        <th scope="col">Description</th>
+                        <th scope="col">Budget</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Skils</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <?php
                     include '../Connection/connection.php';
-                    $sql = "SELECT * FROM user_details where User_Type='user'";
+                    $sql = "SELECT * FROM project";
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) > 0) {
@@ -102,16 +105,22 @@
 
                             $id = $row["ID"];
                             $name = $row["Name"];
-                            $email = $row["Email"];
-                            $address = $row["Address"];
+                            $description = $row["Description"];
+                            $budget = $row["Budget"];
+                            $date = $row["Date"];
+                            $time = $row["Time"];
+                            $skil = $row["Skils"];
 
 
                     ?>
                             <tr>
                                 <td><?php echo $id ?> </td>
                                 <td><?php echo $name ?></td>
-                                <td><?php echo $email ?></td>
-                                <td><?php echo $address ?></td>
+                                <td><?php echo $description ?></td>
+                                <td><?php echo $budget ?></td>
+                                <td><?php echo $date ?></td>
+                                <td><?php echo $time ?></td>
+                                <td><?php echo $skil ?></td>
                                 <td><a href="#!" class="text-info" data-mdb-toggle="tooltip" title="Edit Task"><i class="bi bi-pencil"></i></a>
                                     <a href="#!" class="text-danger" data-mdb-toggle="tooltip" title="Delete Task"><i class="bi bi-trash2"></i></a>
                                 </td>
@@ -131,9 +140,12 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Action</th>
+                       
+                        <th scope="col">Description</th>
+                        <th scope="col">Budget</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Skils</th>
                     </tr>
                 </tfoot>
             </table>
