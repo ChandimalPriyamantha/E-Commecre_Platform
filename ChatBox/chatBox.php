@@ -130,7 +130,7 @@
             // Connect to the database
                 $servername = "localhost";
                 $username = "root";
-                $password = "";
+                $password = "1234";
                 $dbname = "karmikayadb";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,156 +1,168 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Daily UI #002: Credit Card Checkout</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../BootstrapStyle/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
+  <title>Online Clothing Managment System</title>
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<!--
-
-Follow me on
-Dribbble: https://dribbble.com/supahfunk
-Twitter: https://twitter.com/supahfunk
-Codepen: https://codepen.io/supah/
-
-This example is just for fun.
-I realized it for the dailyui challenge
-https://dailyui.co/
-
-Fork it if you want, it's free, but I apreciate credits or a retweet
-
-Enjoy :)
-
--->
-<div class="checkout">
-  <div class="credit-card-box">
-    <div class="flip">
-      <div class="front">
-        <div class="chip"></div>
-        <div class="logo">
-          <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
-            <g>
-              <g>
-                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
-                         c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
-                         c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
-                         M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
-                         c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
-                         c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
-                         l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
-                         C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
-                         C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
-                         c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
-                         h-3.888L19.153,16.8z"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <div class="number"></div>
-        <div class="card-holder">
-          <label>Card holder</label>
-          <div></div>
-        </div>
-        <div class="card-expiration-date">
-          <label>Expires</label>
-          <div></div>
-        </div>
-      </div>
-      <div class="back">
-        <div class="strip"></div>
-        <div class="logo">
-          <svg version="1.1" id="visa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-               width="47.834px" height="47.834px" viewBox="0 0 47.834 47.834" style="enable-background:new 0 0 47.834 47.834;">
-            <g>
-              <g>
-                <path d="M44.688,16.814h-3.004c-0.933,0-1.627,0.254-2.037,1.184l-5.773,13.074h4.083c0,0,0.666-1.758,0.817-2.143
-                         c0.447,0,4.414,0.006,4.979,0.006c0.116,0.498,0.474,2.137,0.474,2.137h3.607L44.688,16.814z M39.893,26.01
-                         c0.32-0.819,1.549-3.987,1.549-3.987c-0.021,0.039,0.317-0.825,0.518-1.362l0.262,1.23c0,0,0.745,3.406,0.901,4.119H39.893z
-                         M34.146,26.404c-0.028,2.963-2.684,4.875-6.771,4.875c-1.743-0.018-3.422-0.361-4.332-0.76l0.547-3.193l0.501,0.228
-                         c1.277,0.532,2.104,0.747,3.661,0.747c1.117,0,2.313-0.438,2.325-1.393c0.007-0.625-0.501-1.07-2.016-1.77
-                         c-1.476-0.683-3.43-1.827-3.405-3.876c0.021-2.773,2.729-4.708,6.571-4.708c1.506,0,2.713,0.31,3.483,0.599l-0.526,3.092
-                         l-0.351-0.165c-0.716-0.288-1.638-0.566-2.91-0.546c-1.522,0-2.228,0.634-2.228,1.227c-0.008,0.668,0.824,1.108,2.184,1.77
-                         C33.126,23.546,34.163,24.783,34.146,26.404z M0,16.962l0.05-0.286h6.028c0.813,0.031,1.468,0.29,1.694,1.159l1.311,6.304
-                         C7.795,20.842,4.691,18.099,0,16.962z M17.581,16.812l-6.123,14.239l-4.114,0.007L3.862,19.161
-                         c2.503,1.602,4.635,4.144,5.386,5.914l0.406,1.469l3.808-9.729L17.581,16.812L17.581,16.812z M19.153,16.8h3.89L20.61,31.066
-                         h-3.888L19.153,16.8z"/>
-              </g>
-            </g>
-          </svg>
-
-        </div>
-        <div class="ccv">
-          <label>CCV</label>
-          <div></div>
-        </div>
+  <!-- top navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
+        <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+      </button>
+      <a class="navbar-brand me-auto ms-lg-0 ms-3  fw-bold" href="#"><i class="bi bi-circle me-3"></i>Karmika.lk</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="topNavBar">
+        <form class="d-flex ms-auto my-3 my-lg-0">
+          <div class="input-group">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-success" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-fill"></i>
+              Hi, <?php //echo $_SESSION['name'] 
+                  ?>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Aboute</a></li>
+              <li>
+                <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
-  <form class="form" autocomplete="off" novalidate>
-    <fieldset>
-      <label for="card-number">Card Number</label>
-      <input type="num" id="card-number" class="input-cart-number" maxlength="3" />
-      <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
-      <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
-      <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
-    </fieldset>
-    <fieldset>
-      <label for="card-holder">Card holder</label>
-      <input type="text" id="card-holder" />
-    </fieldset>
-    <fieldset class="fieldset-expiration">
-      <label for="card-expiration-month">Expiration date</label>
-      <div class="select">
-        <select id="card-expiration-month">
-          <option></option>
-          <option>01</option>
-          <option>02</option>
-          <option>03</option>
-          <option>04</option>
-          <option>05</option>
-          <option>06</option>
-          <option>07</option>
-          <option>08</option>
-          <option>09</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-        </select>
-      </div>
-      <div class="select">
-        <select id="card-expiration-year">
-          <option></option>
-          <option>2016</option>
-          <option>2017</option>
-          <option>2018</option>
-          <option>2019</option>
-          <option>2020</option>
-          <option>2021</option>
-          <option>2022</option>
-          <option>2023</option>
-          <option>2024</option>
-          <option>2025</option>
-        </select>
-      </div>
-    </fieldset>
-    <fieldset class="fieldset-ccv">
-      <label for="card-ccv">CCV</label>
-      <input type="text" id="card-ccv" maxlength="3" />
-    </fieldset>
-    <button class="btn"><i class="fa fa-lock"></i> submit</button>
-  </form>
-</div>
+  </nav>
+  <!-- top navigation bar -->
 
+  <main>
 
-<a class="the-most" target="_blank" href="https://codepen.io/2016/popular/pens/9/">
-  <img src="logo.png">
-</a>
-<!-- partial -->
-  <script  src="./script.js"></script>
+    <!DOCTYPE html>
+    <html lang="en">
 
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../BootstrapStyle/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+      <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
+      <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
+      <link rel="stylesheet" href="style.css" />
+      <title>Online Clothing Managment System</title>
+    </head>
+
+    <body>
+      <!-- top navigation bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample">
+            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+          </button>
+          <a class="navbar-brand me-auto ms-lg-0 ms-3  fw-bold" href="#"><i class="bi bi-circle me-3"></i>Karmika.lk</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="topNavBar">
+            <form class="d-flex ms-auto my-3 my-lg-0">
+              <div class="input-group">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-success" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-fill"></i>
+                  Hi, <?php //echo $_SESSION['name'] 
+                      ?>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Aboute</a></li>
+                  <li>
+                    <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- top navigation bar -->
+
+      <main>
+
+        <div class="container mt-5 mb-5 d-flex justify-content-center">
+          <div class="card p-5">
+            <div>
+              <h4 class="heading">Upgrade your plan</h4>
+              <p class="text">Please make the payment to start enjoying all the features of our premium plan as soon as possible</p>
+            </div>
+            <div class="pricing p-3 rounded mt-4 d-flex justify-content-between">
+              <div class="images d-flex flex-row align-items-center"> <img src="https://i.imgur.com/S17BrTx.png" class="rounded" width="60">
+                <div class="d-flex flex-column ml-4"> <span class="business">Small Business</span> <span class="plan">CHANGE PLAN</span> </div>
+              </div> <!--pricing table-->
+              <div class="d-flex flex-row align-items-center"> <sup class="dollar font-weight-bold">$</sup> <span class="amount ml-1 mr-1">8,350</span> <span class="year font-weight-bold">/ year</span> </div> <!-- /pricing table-->
+            </div> <span class="detail mt-5">Payment details</span>
+            <div class="credit rounded mt-4 d-flex justify-content-between align-items-center">
+              <div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/qHX7vY1.png" class="rounded" width="70">
+                <div class="d-flex flex-column ml-3"> <span class="business">Credit Card</span> <span class="plan">1234 XXXX XXXX 2570</span> </div>
+              </div>
+              <div> <input type="text" class="form-control cvv" placeholder="CVC"> </div>
+            </div>
+            <div class="credit rounded mt-2 d-flex justify-content-between align-items-center">
+              <div class="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/qHX7vY1.png" class="rounded" width="70">
+                <div class="d-flex flex-column ml-3"> <span class="business">Credit Card</span> <input type="text" class="plan">2344 XXXX XXXX 8880> </div>
+              </div>
+              <div> <input type="text" class="form-control cvv" placeholder="CVC"> </div>
+            </div>
+            <h6 class="mt-4 text-primary">ADD PAYMENT METHOD</h6>
+            <div class="email mt-2"> <input type="text" class="form-control email-text" placeholder="Email Address"> </div>
+            <div class="mt-3"> <button class="btn btn-primary btn-block payment-button">Proceed to payment <i class="fa fa-long-arrow-right"></i></button> </div>
+          </div>
+        </div>
+
+      </main>
+
+      <script src="../BootstrapStyle/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+      <script src="../BootstrapStyle/js/jquery-3.5.1.js"></script>
+      <script src="../BootstrapStyle/js/jquery.dataTables.min.js"></script>
+      <script src="../BootstrapStyle/js/dataTables.bootstrap5.min.js"></script>
+      <script src="../BootstrapStyle/js/script.js"></script>
+    </body>
+
+    </html>
+
+  </main>
+
+  <script src="../BootstrapStyle/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+  <script src="../BootstrapStyle/js/jquery-3.5.1.js"></script>
+  <script src="../BootstrapStyle/js/jquery.dataTables.min.js"></script>
+  <script src="../BootstrapStyle/js/dataTables.bootstrap5.min.js"></script>
+  <script src="../BootstrapStyle/js/script.js"></script>
 </body>
+
 </html>

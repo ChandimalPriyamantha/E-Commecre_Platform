@@ -121,8 +121,8 @@
                                 <td><?php echo $date ?></td>
                                 <td><?php echo $time ?></td>
                                 <td><?php echo $skil ?></td>
-                                <td><a href="#!" class="text-info" data-mdb-toggle="tooltip" title="Edit Task"><i class="bi bi-pencil"></i></a>
-                                    <a href="#!" class="text-danger" data-mdb-toggle="tooltip" title="Delete Task"><i class="bi bi-trash2"></i></a>
+                                <td><a href="#!" class="btn btn-primary">Bids</a>
+                                   
                                 </td>
 
                         <?php }
