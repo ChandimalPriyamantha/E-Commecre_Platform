@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
     <title>Online Clothing Managment System</title>
+    <style>
+        table, td, th {  
+                    
+                    text-align: left;
+                }
+
+                table {
+                    
+                    width: 100%;
+                }
+
+                th, td {
+                    padding: 15px;
+                }
+    </style>   
 </head>
 
 <body>
@@ -56,7 +71,98 @@
     <main>
 
 
+        <form action ="" method="post">
+            
+        <br><br><br><br><br><br>
+                <table >
+                    <tr>
+                        <td>
+                            <label for="senderid">Sender ID:</label>
+                        </td>
+                        <td>
+                            <textarea id="senderid" name="senderid" rows="1" cols="60">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="receiverid">Receiver ID:</label>
+                        </td>
+                        <td>
+                            <textarea id="receiverid" name="receiverid" rows="1" cols="60">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Subject"> Subject: </label>
+                        </td>
+                        <td>
+                            <textarea id="subject" name="subject" rows="1" cols="60"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="Message">Message: </label>
+                        </td>
+                        <td>
+                            <textarea id="message" name="message" rows="5" cols="60">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" value="Submit">Send message</button>
+                        </td>
+                        <td>
+                            <button type="reset" value="Reset">Clear message</button>
+                        </td>
+                    </tr>
+                </table>
+          
+            
+           
+        
+        </form>
     
+        <?php
+
+            // Connect to the database
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "karmikayadb";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+                }
+
+            // Handle form submission
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $senderid = $_POST["senderid"];
+                $receiverid= $_POST["receiverid"];
+                $subject = $_POST["subject"];
+                $message = $_POST["message"];
+            
+              // Save message in the database
+                $sql = "INSERT INTO massage (Sender_iD, Resiver_ID, Subject, Body) VALUES ('$senderid','$receiverid','$subject', '$message')";
+            
+              if ($conn->query($sql) === TRUE) {
+                echo "Message sent successfully";
+              } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+              }
+            }
+
+            // Close database connection
+                $conn->close();
+        ?>
+        
+
+
     </main>
   
     <script src="../BootstrapStyle/js/bootstrap.bundle.min.js"></script>
