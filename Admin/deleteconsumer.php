@@ -25,15 +25,7 @@ include "identify_admin.php";
             include "Connection/connection.php";
             $consumerID=$_GET['delete'];
 
-            /*$check_projects_query=mysqli_query($conn,"select Consumer_ID from project");            //check wether consumer has projects
-            while ($row=mysqli_fetch_row($check_projects_query)){
-                if($row[0]==$consumerID){
-                    die ('<div class="alert alert-danger" role="alert">
-                        Could not delete this consumer because he has projects and bids...!<br><br>
-                        <a href="consumer.php"><button class="btn btn-primary">Ok</button></a>
-                        </div>');
-                }
-            }*/
+            
 
             $delete_bid_query=mysqli_query($conn,"delete from bid where Project_Consumer_ID=$consumerID");      //delete bid details of customer
             if(!$delete_bid_query){
