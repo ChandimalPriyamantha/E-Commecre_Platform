@@ -13,7 +13,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `KarmikayaDB` DEFAULT CHARACTER SET utf8 ;
 USE `KarmikayaDB` ;
-
 -- -----------------------------------------------------
 -- Table `KarmikayaDB`.`Catogery`
 -- -----------------------------------------------------
@@ -34,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `KarmikayaDB`.`Service` (
   `Detailse` VARCHAR(300) NULL,
   `Image` VARCHAR(250) NULL,
   `Catogery_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`, `Catogery_ID`),
+  PRIMARY KEY (`ID`),
   INDEX `fk_Service_Catogery_idx` (`Catogery_ID` ASC) ,
   CONSTRAINT `fk_Service_Catogery`
     FOREIGN KEY (`Catogery_ID`)
