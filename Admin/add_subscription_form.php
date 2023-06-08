@@ -1,4 +1,4 @@
-<?php session_start(); ?><?php  
+<?php  
 include "identify_admin.php";
 ?><!DOCTYPE html>
     <html lang="en">
