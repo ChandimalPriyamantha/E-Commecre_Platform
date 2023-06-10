@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    display: flex;
+    height: 100v;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  }
+
+  .container {
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .button input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #9b59b6;
+  }
+
+  .sub-title {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .input-box {
+    margin-bottom: 15px;
+  }
+
+  .input-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+
+  .input-box input,
+  .input-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .button {
+    text-align: center;
+  }
+
+  .button input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .input-group {
+    position: relative;
+  }
+  
+  .dollar-sign {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Adjust the styling of the input field as needed */
+  .input-group input {
+    padding-left: 30px;
+  }
