@@ -1,3 +1,45 @@
+<?php
+require 'connection.php';
+
+$consumerId = $_SESSION['id']; // Assuming you have stored the consumer ID in the session
+$query = "SELECT NIC, First_Name, Lat_Name, Sex, Email, DOB FROM consumer WHERE ID =$consumerId ";
+$result = mysqli_query($conn, $query);
+
+// Check if the query was successful
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $nic = $row['NIC'];
+    $firstName = $row['First_Name'];
+    $lastName = $row['Lat_Name'];
+    $sex = $row['Sex'];
+    $email = $row['Email'];
+    $dob = $row['DOB'];
+    
+    
+} else {
+    echo "No consumer details found.";
+}
+
+if(isset($_POST["submit"])){
+    $nic = $_POST['nic'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $sex = $_POST['sex'];
+    $email = $_POST['email'];
+    $dob = $_POST['dob'];
+
+    $query="update consumer set NIC='$nic', First_Name='$firstName', Lat_Name='$lastName',Sex='$sex',Email='$email',DOB='$dob' where ID='$consumerId'";
+    $result=mysqli_query($conn,$query);
+    if($result){
+        echo
+      "<script> alert('Updated'); </script>";
+    }
+    else{
+        echo
+      "<script> alert('Not updated'); </script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,14 +78,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-fill"></i>
-                            Hi, <?php //echo $_SESSION['name'] 
-                                ?>
+                            Hi, <?php echo $row["First_Name"]; ?>
+                                
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Aboute</a></li>
+                            <li><a class="dropdown-item" href="#">About</a></li>
                             <li>
-                                <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
+                                <a class="dropdown-item" href="#">Log out</a>
                             </li>
                         </ul>
                     </li>
@@ -54,6 +96,39 @@
     <!-- top navigation bar -->
     
     <main>
+<h1>Your Profile</h1>
+
+<form action="update.php" method="POST">
+    <table>
+        <tr>
+            <td><label for="nic">NIC:</label></td>
+            <td><input type="text" name="nic" id="nic" value="<?php echo $nic; ?>" ></td>
+        </tr>
+        <tr>
+            <td><label for="firstName">First Name:</label></td>
+            <td><input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" ></td>
+        </tr>
+        <tr>
+            <td><label for="lastName">Last Name:</label></td>
+            <td><input type="text" name="lastName" id="lastName" value="<?php echo $lastName; ?>" ></td>
+        </tr>
+        <tr>
+            <td><label for="sex">Sex:</label></td>
+            <td><input type="text" name="sex" value="<?php echo $sex; ?>"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" name="email" id="email" value="<?php echo $email; ?>" ></td>
+        </tr>
+        <tr>
+            <td><label for="dob">Date of Birth:</label></td>
+            <td><input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" ></td>
+        </tr>
+    </table>
+    <input type="submit" name="submit" value="Submit">
+    <a href="ConsumerAccount.php"><input type="button" name="back" value="Back"></a>
+</form>
+<a href="Logout.php">Logout</a>
 
 
     

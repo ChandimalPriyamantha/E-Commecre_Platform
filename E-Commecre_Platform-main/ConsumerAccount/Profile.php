@@ -68,24 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit; // Exit after sending the JSON response
     }
 }
-// Handle form submission
-if(isset($_POST["submit"])){
-    // Retrieve the updated values from the form
-    $nic = $_POST['nic'];
-    $updatedFirstName = $_POST['firstName'];
-    $updatedLastName = $_POST['lastName'];
-    $updatedSex = $_POST['sex'];
-    $updatedEmail = $_POST['email'];
-    $updatedDOB = $_POST['dob'];
-
-    $updateQuery = "UPDATE consumer SET NIC='$nic', First_Name = '$updatedFirstName', Lat_Name = '$updatedLastName', Sex = '$updatedSex', Email = '$updatedEmail', DOB = '$updatedDOB' WHERE ID = $consumerId";
-    if (mysqli_query($conn, $updateQuery)) {
-        echo "User details updated successfully.";
-        // You can also redirect the user to another page after successful update if desired
-    } else {
-        echo "Failed to update user details: " . mysqli_error($conn);
-    }
-}
 ?>
 
 

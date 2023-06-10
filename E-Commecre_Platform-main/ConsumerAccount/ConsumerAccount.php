@@ -1,6 +1,7 @@
 <?php
 //require 'connection.php';
 require 'profile.php';
+//require 'update.php';
 if(!empty($_SESSION["id"])){
   $id = $_SESSION["id"];
   $result = mysqli_query($conn, "SELECT * FROM consumer WHERE id = $id");
@@ -106,10 +107,10 @@ else{
                                 
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="Profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
                             <li><a class="dropdown-item" href="#">About</a></li>
                             <li>
-                                <a class="dropdown-item" href="Logout.php">Log out</a>
+                                <a class="dropdown-item" href="#">Log out</a>
                             </li>
                         </ul>
                     </li>
@@ -130,31 +131,31 @@ else{
     <table>
         <tr>
             <td><label for="nic">NIC:</label></td>
-            <td><input type="text" name="nic" id="nic" value="<?php echo $nic; ?>" ></td>
+            <td><input type="text" name="nic" id="nic" value="<?php echo $nic; ?>" disabled></td>
         </tr>
         <tr>
             <td><label for="firstName">First Name:</label></td>
-            <td><input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" ></td>
+            <td><input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" disabled></td>
         </tr>
         <tr>
             <td><label for="lastName">Last Name:</label></td>
-            <td><input type="text" name="lastName" id="lastName" value="<?php echo $lastName; ?>" ></td>
+            <td><input type="text" name="lastName" id="lastName" value="<?php echo $lastName; ?>" disabled></td>
         </tr>
         <tr>
             <td><label for="sex">Sex:</label></td>
-            <td><input type="text" name="sex" value="<?php echo $sex; ?>" ></td>
+            <td><input type="text" name="sex" value="<?php echo $sex; ?>" disabled></td>
         </tr>
         <tr>
             <td><label for="email">Email:</label></td>
-            <td><input type="email" name="email" id="email" value="<?php echo $email; ?>" ></td>
+            <td><input type="email" name="email" id="email" value="<?php echo $email; ?>" disabled></td>
         </tr>
         <tr>
             <td><label for="dob">Date of Birth:</label></td>
-            <td><input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" ></td>
+            <td><input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" disabled></td>
         </tr>
     </table>
-    <input type="submit" name="submit" value="Update">
-    <input type="button" name="back" value="Back">
+    <a href='update.php'><input type="button" name="btn" value="Edit"></a>
+    <a href='delete.php'><input type="button" name="btn" value="Delete"></a>
 </form>
 <a href="Logout.php">Logout</a>
 
