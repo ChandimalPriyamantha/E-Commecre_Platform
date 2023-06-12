@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Online Clothing Managment System</title>
 </head>
 
@@ -53,117 +54,150 @@
     </nav>
     <!-- top navigation bar -->
 
-    <div class="mt-5 pt-1">
-        <div class="card ">
-            <div class="card-header">
-                <ul class="nav nav-pills card-header-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+    <div class="offcanvas offcanvas-start sidebar-nav bg-success" tabindex="-1" id="sidebar">
+        <div class="offcanvas-body p-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <img src="chandimal.jpeg" class="rounded-circle" width="200" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <h1 class="text-white fw-bold text-center">John Doe</h1>
+                <p class="lead text-white fw-bold text-center">Software Engineer</p>
+
+                <ul class="list-unstyled text-white">
+                    <li><i class="bi bi-envelope-fill me-2"></i> john.doe@example.com</li>
+                    <li><i class="bi bi-geo-alt-fill me-2"></i> San Francisco, CA</li>
+                    <li><i class="bi bi-linkedin me-2"></i> <a href="https://www.linkedin.com/in/johndoe" target="_blank" class="text-white">linkedin.com/in/johndoe</a></li>
+                    <li><i class="bi bi-twitter me-2"></i> <a href="https://twitter.com/johndoe" target="_blank" class="text-white">@johndoe</a></li>
                 </ul>
+                <!-- Rest of your content -->
             </div>
-            <div class="card-body">
-               
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <img src="logo.png" class="" width="200" alt="">
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
+    <main>
+        <div class="mt-5 pt-1">
+            <div class="card ">
+                <div class="card-header">
+                    <ul class="nav nav-pills card-header-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
 
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table id="example" class="table table-striped data-table" style="width: 100%">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        
-                        <th scope="col">Description</th>
-                        <th scope="col">Budget</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Skils</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example" class="table table-striped data-table" style="width: 100%">
+                    <thead>
+                        <tr>
 
-                    <?php
-                    include '../Connection/connection.php';
-                    $sql = "SELECT * FROM project";
-                    $result = mysqli_query($conn, $sql);
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Budget</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Skils</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while ($row = mysqli_fetch_assoc($result)) {
+                        <?php
+                        include '../Connection/connection.php';
+                        $sql = "SELECT * FROM project";
+                        $result = mysqli_query($conn, $sql);
 
-                            $id = $row["ID"];
-                            $name = $row["Name"];
-                            $description = $row["Description"];
-                            $budget = $row["Budget"];
-                            $date = $row["Date"];
-                            $time = $row["Time"];
-                            $skil = $row["Skils"];
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
 
+                                $name = $row["Name"];
+                                $description = $row["Description"];
+                                $budget = $row["Budget"];
+                                $date = $row["Date"];
+                                $time = $row["Time"];
+                                $skil = $row["Skils"];
 
-                    ?>
-                            <tr>
-                                <td><?php echo $id ?> </td>
-                                <td><?php echo $name ?></td>
-                                <td><?php echo $description ?></td>
-                                <td><?php echo $budget ?></td>
-                                <td><?php echo $date ?></td>
-                                <td><?php echo $time ?></td>
-                                <td><?php echo $skil ?></td>
-                                <td><a href="#!" class="btn btn-primary">Bids</a>
-                                   
-                                </td>
-
-                        <?php }
-                    } else {
-                        echo "<tr>";
-                        echo "0 results";
-                        echo "</tr>";
-                    }
-                    mysqli_close($conn);
 
                         ?>
+                                <tr>
 
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                       
-                        <th scope="col">Description</th>
-                        <th scope="col">Budget</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Skils</th>
-                    </tr>
-                </tfoot>
-            </table>
+                                    <td><?php echo $name ?></td>
+                                    <td><?php echo $description ?></td>
+                                    <td><?php echo $budget ?></td>
+                                    <td><?php echo $date ?></td>
+                                    <td><?php echo $time ?></td>
+                                    <td><?php echo $skil ?></td>
+                                    <td><a href="#!" class="btn btn-primary">Bids</a>
+
+                                    </td>
+
+                            <?php }
+                        } else {
+                            echo "<tr>";
+                            echo "0 results";
+                            echo "</tr>";
+                        }
+                        mysqli_close($conn);
+
+                            ?>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Budget</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Skils</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
-    </div>
 
-
+    </main>
 
     <footer>
         <!-- place footer here -->
 
         <div class="fixed-bottom">
-            <div class="text-center p-3 bg-success text-white">
+            <div class="text-center p-3 bg-dark  text-white">
                 © 2020 Copyright:
                 <a class="text-white" href="#">Chandimal Priyamantha</a>
             </div>
         </div>
     </footer>
+
+
 
     <script src="../BootstrapStyle/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>

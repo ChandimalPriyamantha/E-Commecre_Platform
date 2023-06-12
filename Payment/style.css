@@ -1,81 +1,114 @@
-body {
-  background-color: #e6ebf4
+body{
+
+  background-color: #eee;
 }
 
-.card {
+.container{
+
+  height: 100vh;
+
+}
+
+
+.card{
+  border:none;
+}
+
+.form-control {
+  border-bottom: 2px solid #eee !important;
   border: none;
-  border-radius: 8px;
-  box-shadow: 5px 6px 6px 2px #e9ecef
+  font-weight: 600
 }
 
-.heading {
-  font-size: 23px;
-  font-weight: 00
-}
-
-.text {
-  font-size: 16px;
-  font-weight: 500;
-  color: #b1b6bd
-}
-
-.pricing {
-  border: 2px solid #304FFE;
-  background-color: #f2f5ff
-}
-
-.business {
-  font-size: 20px;
-  font-weight: 500
-}
-
-.plan {
-  color: #aba4a4
-}
-
-.dollar {
-  font-size: 16px;
-  color: #6b6b6f
-}
-
-.amount {
-  font-size: 50px;
-  font-weight: 500
-}
-
-.year {
-  font-size: 20px;
-  color: #6b6b6f;
-  margin-top: 19px
-}
-
-.detail {
-  font-size: 22px;
-  font-weight: 500
-}
-
-.cvv {
-  height: 44px;
-  width: 73px;
-  border: 2px solid #eee
-}
-
-.cvv:focus {
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #8bbafe;
+  outline: 0;
   box-shadow: none;
-  border: 2px solid #304FFE
+  border-radius: 0px;
+  border-bottom: 2px solid blue !important;
 }
 
-.email-text {
-  height: 55px;
-  border: 2px solid #eee
+
+
+.inputbox {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%
 }
 
-.email-text:focus {
-  box-shadow: none;
-  border: 2px solid #304FFE
+.inputbox span {
+  position: absolute;
+  top: 7px;
+  left: 11px;
+  transition: 0.5s
 }
 
-.payment-button {
-  height: 70px;
-  font-size: 20px
+.inputbox i {
+  position: absolute;
+  top: 13px;
+  right: 8px;
+  transition: 0.5s;
+  color: #1e9b76
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0
+}
+
+.inputbox input:focus~span {
+  transform: translateX(-0px) translateY(-15px);
+  font-size: 12px
+}
+
+.inputbox input:valid~span {
+  transform: translateX(-0px) translateY(-15px);
+  font-size: 12px
+}
+
+.card-blue{
+
+  background-color: #1e9b76;
+}
+
+.hightlight{
+
+  background-color: #1e9b76;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.yellow{
+
+  color: #fdcc49; 
+}
+
+.decoration{
+
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #1e9b76;
+  border-color:#1e9b76;
+}
+
+.btn-success:hover {
+  color: #fff;
+  background-color:#1e9b76;
+  border-color: #1e9b76;
+}
+
+
+.decoration:hover{
+
+  text-decoration: none;
+  color: #fdcc49; 
 }
