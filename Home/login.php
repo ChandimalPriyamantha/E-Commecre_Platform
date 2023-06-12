@@ -100,8 +100,8 @@
                         $_SESSION['id'] = $row[0];
                         $_SESSION['email'] = $Wemail;
                         //successfully login message
-
-                       header("Location: homepahe001.html");   //loading worker view page
+                        die($_SESSION['id']);
+                       //header("Location: homepahe001.html");   //loading worker view page
 
 
                     }
@@ -126,7 +126,7 @@
             $Cemail=$_POST["CEmail"];
             $Cpwd=$_POST["Cpwd"];
 
-            var_dump($Cemail);
+            //var_dump($Cemail);
 
             if(empty($Cemail)|| empty($Cpwd))
             {
@@ -146,10 +146,15 @@
 
                     if($Ccount>0)
                     {
+                        $getid= mysqli_query($conn,"select ID from consumer where Email='$Cemail'");
+                        $row=mysqli_fetch_row($getid);
+
+                         
+                        $_SESSION['id'] = $row[0];
                         $_SESSION['email'] = $Cemail;
                         //successfully login message
-                        
-                       header("Location: homepahe001.html");   //loading worker view page
+                        //die($_SESSION['id']);
+                       header("Location: ../ProjetcCreating/projectCrating.php");   //loading worker view page
 
 
                     }
