@@ -111,47 +111,53 @@ $searchexp=mysqli_query($conn,"select Description from experince where Worker_ID
                   </div>
                 </div>
               </div>
-               <div class="card mt-3">
-                <ul class="list-group list-group-flush">
-                 
-                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h4>Educations</h4>
-                </li>
+                <div class="card mt-3">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                      <h4 class="mb-0">Educations</h4>
+                    </li>
               
-              <?php if($searchedu)
-              {
-                 while ($edurow= mysqli_fetch_assoc($searchedu)) 
-                   { ?>
+                    <?php if($searchedu)
+                    {
+                      while ($edurow= mysqli_fetch_assoc($searchedu)) 
+                    { ?>
 
-                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
-                    <h6><?php  echo $edurow['discription'];?></h6>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
+                      <h6 ><?php  echo $edurow['discription'];?></h6>
+                    </li>
                
-                 <?php } 
-              }?>             
+                  <?php } 
+                  }?>             
             
+              
 
                 </ul>
 
 
-            </div>
-            </div>
+              </div>
+              <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h4 class="mb-0">Experiences</h4>
+                  </li>
 
-            <div class="card mt-3">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                <h4>Experiences</h4>
-                
-              <?php if($searchexp)
-              {
-                 while ($exprow= mysqli_fetch_assoc($searchexp)) 
-                   { ?>
+                  <?php if($searchexp)
+                  {
+                    while ($exprow= mysqli_fetch_assoc($searchexp)) 
+                    { ?>
+
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap"> 
                     <h6><?php  echo $exprow['Description'];?></h6>
-                 
-                 <?php  } 
-              }?> 
-            </ul>
-          </div>
+                  </li>
+
+                  <?php  } 
+                  }?> 
+                </ul>
+              </div>
+
+            </div>
+
+              
 
             <div class="col-md-8" style="margin-top: 50px;">
               <div class="card mb-3">

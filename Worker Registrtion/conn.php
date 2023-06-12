@@ -1,16 +1,20 @@
 <?php
+// DB connection parameters
+  //   $dbServer = "localhost";
+	// $dbUser = "root";
+	// $dbPassword = "";
+	// $database = "karmikayadb";
+	
+// Connect
+    $conn = mysqli_connect('localhost', 'root', '');
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "karmikayadb";
+   mysqli_query($conn,"use karmikayadb");
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password,$dbname);
+	   if(!$conn){
+		   die("Connection Failed : ".mysqli_connect_error());
+	   }
+     else{
+      //echo"file is successfully saved into the database.";
 
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-//echo "Connected successfully";
+     }
 ?>

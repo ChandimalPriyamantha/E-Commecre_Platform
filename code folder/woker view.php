@@ -14,6 +14,19 @@
 
 <?PHP  
 
+
+session_start();
+// ... your existing code ...
+
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    // ... use the $email variable as needed ...
+} else {
+    // redirect or handle the case when the email value is not available in the session
+}
+
+
+
     include("conn.php");
 
     $id="";
@@ -25,8 +38,8 @@
     $Dimage="";
     $Dcategory="";
 
-   $search= mysqli_query($conn,"SELECT First_Name,Lat_Name,Email,Image_Path,Jobe_Category FROM worker WHERE ID='696' ");
-
+   $search= mysqli_query($conn,"SELECT First_Name,Lat_Name,Email,Image_Path,Jobe_Category FROM worker WHERE  Email='$email' ");
+                                                                                                          
 
     while ($row = mysqli_fetch_assoc($search)) 
     {
@@ -37,7 +50,9 @@
       $Dcategory=$row['Jobe_Category'];
     }
 
-    $searchAddress= mysqli_query($conn,"SELECT Street_address,City,Country FROM Address_of_worker WHERE Worker_ID='696' ");
+    $searchAddress= mysqli_query($conn,"SELECT Street_address, City, CountryFROM Address_of_worker WHERE Worker_ID IN (SELECT ID FROM worker WHERE Email = '$email')");
+    
+    //"SELECT Street_address,City,Country FROM Address_of_worker WHERE Worker_ID='696' "
 
 
     while ($address = mysqli_fetch_assoc($searchAddress)) 
@@ -64,14 +79,15 @@
 
     if(isset($_POST['Save']))
     {
-      $Dfname=$_POST['fullname'];
+   
       $Demail=$_POST['email'];
       $Dmobile=$_POST['mobile'];
       $DCity=$_POST['address'];
-
-      mysqli_query($conn,"UPDATE worker Set First_Name='$Dfname' where ID='696' ");
+    
+       
+     // mysqli_query($conn,"UPDATE worker Set First_Name='$Dfname' where ID='696' ");
       mysqli_query($conn,"UPDATE worker Set Email='$Demail' where ID='696' ");
-      mysqli_query($conn,"UPDATE Phone_Number_of_worker Set Mobile='$Dmobile' where ID='696'");
+      mysqli_query($conn,"UPDATE `phone_number_of_worker` SET `Mobile_Number` = '$Dmobile' WHERE `Worker_ID` = 696;");
       mysqli_query($conn,"UPDATE Address_of_worker Set City='$DCity' where Worker_ID='696'");
 
 
@@ -84,7 +100,7 @@
     $image_temp=$_FILES["file"]["tmp_name"];
     move_uploaded_file($image_temp , "worker_images/$Dimage");
     mysqli_query($conn,"UPDATE worker Set Image_Path='$Dimage' where ID='696' ");
-
+    header('Location: woker view.php');
     }
 
     if(isset($_POST["addedu"]))
@@ -169,7 +185,7 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <!-- Worker image-->
-                    <img src="<?php echo $Dimage; ?> " alt="Admin" class="rounded-circle" width="" height="">
+                    <img src="<?php echo $Dimage; ?> " alt="Admin" class="rounded-circle" width="150" height="150">
                     <form method="POST" enctype="multipart/form-data">
                     <input type="file" name="file"  accept=".jpg, .jpeg, .png" />
                     <input type="submit" name="edit" value="Upload">
@@ -233,27 +249,12 @@
                 </ul>
               </div>
             </div>
-         
-           
-						
-					
-
-
-
-            
             <div class="col-md-8" style="margin-top: 50px;">
               <div class="card mb-3">
                 <form method="POST">
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <input type="text" name="fullname" value="<?php  echo $Dfname ." " . $Dlname;   ?>">
-                    </div>
-                  </div>
-                  <hr>
+      
+                  
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Email</h6>

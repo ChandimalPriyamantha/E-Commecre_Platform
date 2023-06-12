@@ -161,20 +161,10 @@
         if($password==$password1)
         {
 
-            if (!preg_match("/[a-zA-Z ]/",$fname))
-            {
-               
                 $workQ=mysqli_query($conn,"INSERT INTO worker (NIC, First_Name, Lat_Name, Sex, Email, DOB, Password,Jobe_Category)
                 VALUES ('$nic','$fname','$lname','$sex','$email','$dob','$password','$jobcategory' )");
 
-            }
-            else
-            {
-                echo  " <script type='text/javascript'>";
-                echo  "alert('')";
-                echo  "</script>";
-            }
-
+         
 
       
    
@@ -205,6 +195,7 @@
 
         else
         {
+        var_dump($addressQ);
          echo  " <script type='text/javascript'>";
          echo  "alert('Fill All the Required Fields')";
          echo  "</script>";
