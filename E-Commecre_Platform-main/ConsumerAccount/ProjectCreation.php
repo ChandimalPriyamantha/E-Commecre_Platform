@@ -1,3 +1,36 @@
+<?php
+require 'connection.php';
+
+if (isset($_POST["submit"])) {
+    $id = $_POST["id"];
+    $name = $_POST["name"];
+    $description = $_POST["description"];
+    $budget = $_POST["budget"];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $skils = $_POST["skils"];
+    $conid = $_POST["conid"];
+
+    $query = "INSERT INTO `project` (`ID`, `Name`, `Description`, `Budget`, `Date`, `Time`, `Skils`, `CONSUMER_ID`) VALUES ('$id', '$name', '$description', '$budget', '$date', '$time', '$skils', '$conid')";
+    if (mysqli_query($conn, $query)) {
+        echo "<script> alert('Project uploaded Successfully'); </script>";
+    } else {
+        echo "<script> alert('Error: " . mysqli_error($conn) . "'); </script>";
+    }
+} 
+if(isset($_POST["reset"])){
+    // Clear the form fields by assigning empty values
+    $id = "";
+    $name = "";
+    $description = "";
+    $budget = "";
+    $date = "";
+    $time = "";
+    $skils="";
+    $conid = "";
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,22 +69,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-fill"></i>
-                            Hi, <?php //echo $_SESSION['name'] 
-                                ?>
+                            Hi
+                                
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Aboute</a></li>
+                            <li><a class="dropdown-item" href="#">About</a></li>
                             <li>
-                                <a class="dropdown-item" href="..ProjectCreation.php">Project Creation</a>
+                                <a class="dropdown-item" href="#">Log out</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="..ProjectUpdation.php">Project Updation</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
-                            </li>
-                            
                         </ul>
                     </li>
                 </ul>
@@ -61,10 +87,47 @@
     <!-- top navigation bar -->
     
     <main>
-        <br><br>
-        <a href="ConsumerAccount.php">Profile</a>
-        <a href="ProjectCreation.php">ProjectCreation</a>
-    
+    <h1>Upload Here</h1>
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <td>ID: </td>
+                    <td><input type="text" name="id" placeholder="ID"></td>
+                </tr>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" name="name" placeholder="Name"></td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td><textarea id="txtar" name="description" rows="4" cols="50"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Budget: </td>
+                    <td><input type="text" name="budget" placeholder="Budget"></td>
+                </tr>
+                <tr>
+                    <td>Date: </td>
+                    <td><input type="text" name="date" placeholder="Date"></td>
+                </tr>
+                <tr>
+                    <td>Time: </td>
+                    <td><input type="text" name="time" placeholder="Time"></td>
+                </tr>
+                <tr>
+                    <td>Skill: </td>
+                    <td><input type="text" name="skils" placeholder="Skill"></td>
+                </tr>
+                <tr>
+                    <td>Consumer ID: </td>
+                    <td><input type="text" name="conid" placeholder="Consumer ID"></td>
+                </tr>
+            </table>
+
+            <button type="submit" name="submit">Create</button>
+            <button type="reset" name="reset">Clear</button>
+        </form>
+        <a href="ProjectUpdation.php">Project Updation</a>
     </main>
   
     <script src="../BootstrapStyle/js/bootstrap.bundle.min.js"></script>
@@ -74,5 +137,5 @@
     <script src="../BootstrapStyle/js/dataTables.bootstrap5.min.js"></script>
     <script src="../BootstrapStyle/js/script.js"></script>
 </body>
-
 </html>
+

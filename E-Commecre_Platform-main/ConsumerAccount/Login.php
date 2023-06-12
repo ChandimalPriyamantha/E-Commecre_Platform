@@ -1,7 +1,7 @@
 <?php
 require 'connection.php';
 if(!empty($_SESSION["id"])){
-  header("Location: ConsumerAccount.php");
+  header("Location: home.php");
 }
 if(isset($_POST["submit"])){
   $usernameemail = $_POST["usernameemail"];
@@ -12,7 +12,7 @@ if(isset($_POST["submit"])){
     if($password == $row['Password']){
       $_SESSION["login"] = true;
       $_SESSION["id"] = $row["ID"];
-      header("Location: ConsumerAccount.php");
+      header("Location: home.php");
       exit();
     }
     else{
