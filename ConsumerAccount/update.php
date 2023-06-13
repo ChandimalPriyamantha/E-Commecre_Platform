@@ -1,14 +1,43 @@
 <?php
-//require 'connection.php';
-require 'profile.php';
-//require 'update.php';
-if(!empty($_SESSION["id"])){
-  $id = $_SESSION["id"];
-  $result = mysqli_query($conn, "SELECT * FROM consumer WHERE id = $id");
-  $row = mysqli_fetch_assoc($result);
+require 'connection.php';
+
+$consumerId = $_SESSION['id']; // Assuming you have stored the consumer ID in the session
+$query = "SELECT NIC, First_Name, Lat_Name, Sex, Email, DOB FROM consumer WHERE ID =$consumerId ";
+$result = mysqli_query($conn, $query);
+
+// Check if the query was successful
+if ($result && mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $nic = $row['NIC'];
+    $firstName = $row['First_Name'];
+    $lastName = $row['Lat_Name'];
+    $sex = $row['Sex'];
+    $email = $row['Email'];
+    $dob = $row['DOB'];
+    
+    
+} else {
+    echo "No consumer details found.";
 }
-else{
-  header("Location: Login.php");
+
+if(isset($_POST["submit"])){
+    $nic = $_POST['nic'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $sex = $_POST['sex'];
+    $email = $_POST['email'];
+    $dob = $_POST['dob'];
+
+    $query="update consumer set NIC='$nic', First_Name='$firstName', Lat_Name='$lastName',Sex='$sex',Email='$email',DOB='$dob' where ID='$consumerId'";
+    $result=mysqli_query($conn,$query);
+    if($result){
+        echo
+      "<script> alert('Updated'); </script>";
+    }
+    else{
+        echo
+      "<script> alert('Not updated'); </script>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -23,60 +52,6 @@ else{
     <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
     <title>Online Clothing Managment System</title>
-    <style>
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        .profile-pic img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var profilePic = document.getElementById('profile-pic');
-            var newProfilePicInput = document.getElementById('newProfilePic');
-
-            profilePic.addEventListener('click', function() {
-                // Trigger the click event on the hidden file input field
-                newProfilePicInput.click();
-            });
-
-            // Listen for changes in the file input field
-            newProfilePicInput.addEventListener('change', function() {
-                // Update the profile picture when a new file is selected
-                var file = newProfilePicInput.files[0];
-                var formData = new FormData();
-                formData.append('newProfilePic', file);
-
-                // Send an AJAX request to the server to update the profile picture
-                $.ajax({
-                    url: 'profile.php',
-                    type: 'POST',
-                    data: formData,
-                    dataType: 'json',
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        if (response.success) {
-                            // Update the profile picture on the page
-                            profilePic.src = response.imageUrl;
-                        } else {
-                            console.error('Profile picture update failed:', response.error);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('AJAX error:', error);
-                    }
-                });
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -122,40 +97,36 @@ else{
     
     <main>
 <h1>Your Profile</h1>
-<div class="profile-pic">
-    <img id="profile-pic" src="data:image/jpeg;base64,<?php echo base64_encode($imageData); ?>"
-         alt="Profile Picture"><br>
-    <input type="file" name="newProfilePic" id="newProfilePic" style="display: none;">
-</div>
-<form action="profile.php" method="POST">
+
+<form action="update.php" method="POST">
     <table>
         <tr>
             <td><label for="nic">NIC:</label></td>
-            <td><input type="text" name="nic" id="nic" value="<?php echo $nic; ?>" disabled></td>
+            <td><input type="text" name="nic" id="nic" value="<?php echo $nic; ?>" ></td>
         </tr>
         <tr>
             <td><label for="firstName">First Name:</label></td>
-            <td><input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" disabled></td>
+            <td><input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" ></td>
         </tr>
         <tr>
             <td><label for="lastName">Last Name:</label></td>
-            <td><input type="text" name="lastName" id="lastName" value="<?php echo $lastName; ?>" disabled></td>
+            <td><input type="text" name="lastName" id="lastName" value="<?php echo $lastName; ?>" ></td>
         </tr>
         <tr>
             <td><label for="sex">Sex:</label></td>
-            <td><input type="text" name="sex" value="<?php echo $sex; ?>" disabled></td>
+            <td><input type="text" name="sex" value="<?php echo $sex; ?>"></td>
         </tr>
         <tr>
             <td><label for="email">Email:</label></td>
-            <td><input type="email" name="email" id="email" value="<?php echo $email; ?>" disabled></td>
+            <td><input type="email" name="email" id="email" value="<?php echo $email; ?>" ></td>
         </tr>
         <tr>
             <td><label for="dob">Date of Birth:</label></td>
-            <td><input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" disabled></td>
+            <td><input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" ></td>
         </tr>
     </table>
-    <a href='update.php'><input type="button" name="btn" value="Edit"></a>
-    <a href='delete.php'><input type="button" name="btn" value="Delete"></a>
+    <input type="submit" name="submit" value="Submit">
+    <a href="ConsumerAccount.php"><input type="button" name="back" value="Back"></a>
 </form>
 <a href="Logout.php">Logout</a>
 

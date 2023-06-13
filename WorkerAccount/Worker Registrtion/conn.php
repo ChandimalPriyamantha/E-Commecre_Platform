@@ -6,7 +6,7 @@
 	// $database = "karmikayadb";
 	
 // Connect
-    $conn = mysqli_connect('localhost', 'root', '1234');
+    $conn = mysqli_connect('localhost', 'root', '');
 
    mysqli_query($conn,"use karmikayadb");
 
