@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "1234";
+$password = "root";
 $dbname = "KarmikayaDB";
 
 // Create connection

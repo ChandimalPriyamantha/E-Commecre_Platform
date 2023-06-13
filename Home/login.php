@@ -2,6 +2,7 @@
     <title>Authentication Form</title>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css"></link>
+        
     </head>
     <body>
         
@@ -102,9 +103,9 @@
                         //$_SESSION['state'] = $row[1];
                         //successfully login message
                         if ($row[1]== "Active" || $row[1]== "active") {
-                            header("Location : ../ProjectView/projectView.php");
+                            header("Location: ../ProjectView/projectView.php");
                         }else {
-                            header("Location : ../Payment/Payment.php");
+                            header("Location: ../Payment/Payment.php");
                             
                         }
                         die($_SESSION['id']);
