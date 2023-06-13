@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Digitf</title>
+  <title>Karmikaya</title>
 
   <!-- slider stylesheet -->
   <link rel="stylesheet" type="text/css"
@@ -48,18 +48,7 @@
               <li class="nav-item ">
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="shop.html">Shop </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="furniture.html"> Furniture </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact us</a>
-              </li>
+              
             </ul>
             <div class="user_option">
               <a href="">
@@ -129,7 +118,9 @@
         <div class="box">
           <a href="">
           <div class="img-box">
-             <img src="<?php echo $servicerow['Image']; ?>" style="height:230px;width: 200px;" alt="">
+              
+          <!-- + -->
+             <img src="../Admin/<?php echo($servicerow['Image']); ?>" style="height:230px;width: 200px;" alt="">
             </div>
             <div class="detail-box">
               <h6 class="price">
