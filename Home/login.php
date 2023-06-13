@@ -97,6 +97,8 @@
                         $getid= mysqli_query($conn,"select ID,State from worker where Email='$Wemail'");
                         $row=mysqli_fetch_row($getid);
 
+
+                           
                          
                         $_SESSION['id'] = $row[0];
                         $_SESSION['email'] = $Wemail;
@@ -105,10 +107,11 @@
                         if ($row[1]== "Active" || $row[1]== "active") {
                             header("Location: ../ProjectView/projectView.php");
                         }else {
+
                             header("Location: ../Payment/Payment.php");
                             
                         }
-                        die($_SESSION['id']);
+                        //die($_SESSION['id']);
                        //header("Location: homepahe001.html");   //loading worker view page
                         
 

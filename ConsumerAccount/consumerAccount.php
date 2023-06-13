@@ -1,3 +1,16 @@
+<?php
+//require 'connection.php';
+require 'profile.php';
+//require 'update.php';
+if(!empty($_SESSION["id"])){
+  $id = $_SESSION["id"];
+  $result = mysqli_query($conn, "SELECT * FROM consumer WHERE id = $id");
+  $row = mysqli_fetch_assoc($result);
+}
+else{
+  header("Location: Login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +23,60 @@
     <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
     <title>Online Clothing Managment System</title>
+    <style>
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .profile-pic img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var profilePic = document.getElementById('profile-pic');
+            var newProfilePicInput = document.getElementById('newProfilePic');
+
+            profilePic.addEventListener('click', function() {
+                // Trigger the click event on the hidden file input field
+                newProfilePicInput.click();
+            });
+
+            // Listen for changes in the file input field
+            newProfilePicInput.addEventListener('change', function() {
+                // Update the profile picture when a new file is selected
+                var file = newProfilePicInput.files[0];
+                var formData = new FormData();
+                formData.append('newProfilePic', file);
+
+                // Send an AJAX request to the server to update the profile picture
+                $.ajax({
+                    url: 'profile.php',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        if (response.success) {
+                            // Update the profile picture on the page
+                            profilePic.src = response.imageUrl;
+                        } else {
+                            console.error('Profile picture update failed:', response.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX error:', error);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -36,14 +103,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-fill"></i>
-                            Hi, <?php //echo $_SESSION['name'] 
-                                ?>
+                            Hi, <?php echo $row["First_Name"]; ?>
+                                
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Aboute</a></li>
+                            <li><a class="dropdown-item" href="#">About</a></li>
                             <li>
-                                <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
+                                <a class="dropdown-item" href="#">Log out</a>
                             </li>
                         </ul>
                     </li>
@@ -54,6 +121,43 @@
     <!-- top navigation bar -->
     
     <main>
+<h1>Your Profile</h1>
+<div class="profile-pic">
+    <img id="profile-pic" src="data:image/jpeg;base64,<?php echo base64_encode($imageData); ?>"
+         alt="Profile Picture"><br>
+    <input type="file" name="newProfilePic" id="newProfilePic" style="display: none;">
+</div>
+<form action="profile.php" method="POST">
+    <table>
+        <tr>
+            <td><label for="nic">NIC:</label></td>
+            <td><input type="text" name="nic" id="nic" value="<?php echo $nic; ?>" disabled></td>
+        </tr>
+        <tr>
+            <td><label for="firstName">First Name:</label></td>
+            <td><input type="text" name="firstName" id="firstName" value="<?php echo $firstName; ?>" disabled></td>
+        </tr>
+        <tr>
+            <td><label for="lastName">Last Name:</label></td>
+            <td><input type="text" name="lastName" id="lastName" value="<?php echo $lastName; ?>" disabled></td>
+        </tr>
+        <tr>
+            <td><label for="sex">Sex:</label></td>
+            <td><input type="text" name="sex" value="<?php echo $sex; ?>" disabled></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" name="email" id="email" value="<?php echo $email; ?>" disabled></td>
+        </tr>
+        <tr>
+            <td><label for="dob">Date of Birth:</label></td>
+            <td><input type="date" name="dob" id="dob" value="<?php echo $dob; ?>" disabled></td>
+        </tr>
+    </table>
+    <a href='update.php'><input type="button" name="btn" value="Edit"></a>
+    <a href='delete.php'><input type="button" name="btn" value="Delete"></a>
+</form>
+<a href="Logout.php">Logout</a>
 
 
     

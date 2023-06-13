@@ -1,3 +1,26 @@
+
+<?php 
+               session_start(); 
+               include 'connection.php';
+              // $_SESSION['ID'] = 1;
+               $id = $_SESSION['id'];
+               $sql = "SELECT * FROM worker WHERE ID='$id'";
+
+               $result = mysqli_query($conn, $sql);
+               if (mysqli_num_rows($result) === 1) {
+               $row = mysqli_fetch_assoc($result);
+
+
+               $_SESSION['Firts_Name'] = $row['First_Name'];
+               $_SESSION['job'] = $row['Jobe_Type'];
+               $_SESSION['image'] = $row['Image_Path'];
+              
+                  
+            
+            }
+            
+            ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,11 +60,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-fill"></i>
-                            Hi, <?php //echo $_SESSION['name'] 
-                                ?>
+                            Hi, <?php echo $_SESSION['Firts_Name'] ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="../WorkerAccount/code folder/woker view.php">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Aboute</a></li>
                             <li>
                                 <a class="dropdown-item" href="../check-php/logout.php">Log out</a>
@@ -63,10 +85,13 @@
                     </div>
                 </div>
             </div>
+           
+           
+            
 
             <div class="container">
-                <h1 class="text-white fw-bold text-center">John Doe</h1>
-                <p class="lead text-white fw-bold text-center">Software Engineer</p>
+                <h1 class="text-white fw-bold text-center"> <?php echo $_SESSION['Firts_Name'] ?></h1>
+                <p class="lead text-white fw-bold text-center"> <?php echo $_SESSION['job'] ?></p>
 
                 <ul class="list-unstyled text-white">
                     <li><i class="bi bi-envelope-fill me-2"></i> john.doe@example.com</li>
@@ -93,10 +118,10 @@
                 <div class="card-header">
                     <ul class="nav nav-pills card-header-pills">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link active" href="../Home/homepahe001.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="../ChatBox/chatBox.php">Chat</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -154,7 +179,7 @@
                                     <td><?php echo $date ?></td>
                                     <td><?php echo $time ?></td>
                                     <td><?php echo $skil ?></td>
-                                    <td><a href="#!" class="btn btn-primary">Bids</a>
+                                    <td><a href='../Proposal/Proposal.php?id=<?php echo $id ?>&name=<?php echo urlencode($name) ?>&description=<?php echo urlencode($description) ?>&budget=<?php echo $budget ?>&date=<?php echo $date ?>&time=<?php echo $time ?>&skil=<?php echo urlencode($skil) ?>' class='btn btn-primary'>Bids</a></td>
 
                                     </td>
 
