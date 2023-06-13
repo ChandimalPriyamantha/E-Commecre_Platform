@@ -11,7 +11,7 @@ if (isset($_POST["submit"])) {
     $skils = $_POST["skils"];
     $conid = $_POST["conid"];
 
-    $query = "INSERT INTO `project` (`ID`, `Name`, `Description`, `Budget`, `Date`, `Time`, `Skils`, `CONSUMER_ID`) VALUES ('$id', '$name', '$description', '$budget', '$date', '$time', '$skils', '$conid')";
+    $query = "INSERT INTO `project` (`pid`, `Name`, `Description`, `Budget`, `Date`, `Time`, `Skils`, `CONSUMER_ID`) VALUES ('$id', '$name', '$description', '$budget', '$date', '$time', '$skils', '$conid')";
     if (mysqli_query($conn, $query)) {
         echo "<script> alert('Project uploaded Successfully'); </script>";
     } else {

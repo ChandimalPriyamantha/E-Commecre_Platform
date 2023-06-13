@@ -8,9 +8,7 @@ $result = mysqli_query($conn, $query);
 
 if(isset($_POST["submit"])){
     // Get the updated values from the text fields
-    if(isset($_POST["pid"])){
-        $pid = $_POST["pid"];
-    }
+    $pid=$_POST['pid'];
      // Assuming you pass the ID of the record via POST
     $name = $_POST['name'];
     $description = $_POST['description'];
@@ -20,7 +18,7 @@ if(isset($_POST["submit"])){
     $skils = $_POST['skils'];
 
     // Prepare the UPDATE statementS
-    $query = "UPDATE project SET Name='$name', Description='$description', Budget='$budget', Date='$date', Time='$time', Skils='$skils' WHERE ID='$pid'";
+    $query = "UPDATE project SET Name='$name', Description='$description', Budget='$budget', Date='$date', Time='$time', Skils='$skils' WHERE pid='$pid'";
 
     // Create a prepared statement
     $stmt = mysqli_query($conn, $query);
@@ -34,15 +32,15 @@ if(isset($_POST["submit"])){
 
 }
 if (isset($_POST["submit1"])) {
-    $pid = $_POST["pid"];
+    $pid=$_POST['pid'];
 
     // Remove the record from the database
-    $query = "DELETE FROM project WHERE ID='$pid'";
-    $stmt = mysqli_query($conn, $query);
+    $query = "DELETE FROM project WHERE pid='$pid'";
+    $stmt1 = mysqli_query($conn, $query);
 
-    if ($stmt) {
-        echo "<script> alert('Record removed successfully'); </script>";
-        header("Location: ProjectCreation.php");
+    if ($stmt1) {
+      echo  "<script> alert('Account Deleted Succesfully...'); </script>";
+      //header("Location: Login.php");
     } else {
         echo "<script> alert('Not removed'); </script>";
     }
@@ -142,7 +140,7 @@ if (isset($_POST["submit1"])) {
         <h1>Update project</h1>
             <table id="projectTable" cellpadding="1" cellspacing="3">
                 <tr>
-                    <td>ID</td>
+                    <td>Project ID</td>
                     <td>Name</td>
                     <td>Description</td>
                     <td>Budget</td>
@@ -155,7 +153,7 @@ if (isset($_POST["submit1"])) {
                     // Loop through the result set and display the data in table rows
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>" . $row["ID"] . "</td>";
+                        echo "<td>" . $row["pid"] . "</td>";
                         echo "<td>" . $row["Name"] . "</td>";
                         echo "<td>" . $row["Description"] . "</td>";
                         echo "<td>" . $row["Budget"] . "</td>";
@@ -171,7 +169,7 @@ if (isset($_POST["submit1"])) {
             <h2>Edit Project</h2>
 <form action="ProjectUpdation.php" method="POST">
     <label for="ID">ID:</label>
-    <input type="text" id="pid" name="pid" disabled ><br><br>
+    <input type="text" id="pid" name="pid" readonly ><br><br>
 
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" ><br><br>

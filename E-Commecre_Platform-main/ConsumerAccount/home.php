@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="../BootstrapStyle/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="../BootstrapStyle/css/style.css" />
     <title>Online Clothing Managment System</title>
+    <style>
+        .div1{
+            width:25%;
+            float:left;
+        }
+        .div2{
+            width:75%;
+            float:right;
+        }
+    </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 </head>
 
 <body>
@@ -57,14 +69,32 @@
                 </ul>
             </div>
         </div>
+        
     </nav>
     <!-- top navigation bar -->
     
+
     <main>
-        <br><br>
+        <div class="container">
+    <div class="div1"></div>
+    <br><br><br>
+    <h2>Contents</h2>
+        <ul>
+           <li> <a href="ConsumerAccount.php">Profile</a></li>
+            <a href="ProjectCreation.php"><li>Project Creation</li></a>
+            <a href="ProjectUpdation.php"><li>Project Updation</li></a>
+            <li><a href="Logout.php">Logout</a></li>
+        </ul>
+    <div class="div2">
+        <h2>Welcome to Karmikaya.lk</h2>
+        ConsumerAccount.php;
+
+    </div>
+        <!-- <br><br>
         <a href="ConsumerAccount.php">Profile</a>
         <a href="ProjectCreation.php">ProjectCreation</a>
-    
+     
+
     </main>
   
     <script src="../BootstrapStyle/js/bootstrap.bundle.min.js"></script>
