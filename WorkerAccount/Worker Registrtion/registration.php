@@ -27,10 +27,10 @@
         <div class="container"><a class="navbar-brand logo" href="#" style="font-family: Aboreto, serif;">Karmikaya</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/login.php">Login</a></li>
                     <li class="nav-item"><a class="nav-link active" href="registration.html">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Home/login.php">Account</a></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <div class="container">
                     <div class="block-heading">
                         <h2 class="text-info">Registration</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p> -->
                     </div>
                     <form class="shadow" style="height: 680px;width: 1110px;max-width: none;" method="POST">
                         <div style="width: 255px; float: left;">
@@ -179,7 +179,8 @@
    
          $addressQ=mysqli_query($conn,"INSERT INTO `address_of_worker` (`Recipient's name`, `Business's name`, ` ZIP code`, `State`, `Country`, `City`, `Street_address`, `Worker_ID`) 
          VALUES ('$recepName', '$buisName', '$zip', '$state', '$country', '$city', '$street', '$id');");
-   
+
+        
 
         }
 

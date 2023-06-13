@@ -84,7 +84,8 @@ if (isset($_SESSION['email'])) {
        
      // mysqli_query($conn,"UPDATE worker Set First_Name='$Dfname' where ID='696' ");
       mysqli_query($conn,"UPDATE worker Set Email='$Demail' where Email='$email' ");
-      mysqli_query($conn,"UPDATE `phone_number_of_worker` SET `Mobile_Number` = '$Dmobile' WHERE Worker_ID IN (SELECT ID FROM worker WHERE Email = '$email')");
+      $number = mysqli_query($conn,"UPDATE `phone_number_of_worker` SET `Mobile_Number` = '$Dmobile' WHERE Worker_ID IN (SELECT ID FROM worker WHERE Email = '$email')");
+      //
       mysqli_query($conn,"UPDATE Address_of_worker Set City='$DCity' WHERE Worker_ID IN (SELECT ID FROM worker WHERE Email = '$email')");
 
 
@@ -353,7 +354,7 @@ if (isset($_SESSION['email'])) {
                   </div>
                 </div>
                 <?php  
-                  $reviewResult=mysqli_query($conn,"select name,description from review where worker_id=$sid");
+                  $reviewResult=mysqli_query($conn,"select name,description from review where ID=$sid");
                   if($reviewResult){
                   while ($reviewrow= mysqli_fetch_assoc($reviewResult)) 
                   {
